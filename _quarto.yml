@@ -1,0 +1,8 @@
+project:
+  title: "agentic-developer"
+
+format:
+  revealjs:
+    theme: default
+
+

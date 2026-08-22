@@ -1,0 +1,12 @@
+---
+title: "The Agentic Developer"
+subtitle: "Getting Started with VS Code Copilot"
+date: 2026-08-25
+author: Bartosz Chmiela
+email: chmiela.bartosz@gmail.com
+institute: Aviva Warsaw
+---
+
+## Quarto
+
+Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
