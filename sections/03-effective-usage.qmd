@@ -1,0 +1,5 @@
+# Effective usage
+Cost
+Prompt caching
+Effort
+Intelligence index
