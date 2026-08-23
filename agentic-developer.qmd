@@ -103,7 +103,23 @@ Being inside the context window does not guarantee being remembered.
 
 
 # Models
-3 big families, open source chinese, auto, a pool on model chocies
+
+## Frontier AI labs
+
+| | Small / efficient | Medium / balanced | Large / capable |
+|:---:|:---:|:---:|:---:|
+| ![](images/logos/anthropic.svg){fig-alt="Anthropic" width="42"} | **Claude Haiku 4.5** | **Claude Sonnet 5** | **Claude Opus 5** |
+| ![](images/logos/openai.svg){fig-alt="OpenAI" width="42"} | **GPT-5.6 Luna** | **GPT-5.6 Terra** | **GPT-5.6 Sol** |
+| ![](images/logos/google.svg){fig-alt="Google" width="42"} | **Gemini 3.5 Flash-Lite** | **Gemini 3.7 Flash** | **Gemini 3.1 Pro**[^gemini-preview] |
+
+::: {.fragment}
+*Poll: which model do you use?*
+:::
+
+[^gemini-preview]: Preview model.
+
+## Alternatives
+open source chinese, auto, a pool on model chocies
 
 # Effective usage
 Cost
