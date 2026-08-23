@@ -15,3 +15,8 @@ Progressive disclosure, open standard
 ## Subagents
 
 ## Hooks
+
+## MCP
+
+## Execution environment
+local / worktree / cloud

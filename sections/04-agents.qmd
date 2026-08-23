@@ -42,11 +42,14 @@ outside the context window.
 :::
 
 ## Agent harness
-Explain what agent harness is and provide example diagram for it.
 
-## MCP
+An **agent harness** is the software runtime that coordinates an agent session:
+it assembles context, calls the model, executes tool calls, and manages state
+and permissions.
 
-## Execution environment
+![](images/diagrams/agent-harness.svg){fig-alt="An agent harness inside a development environment. A goal enters the harness, which manages the agent loop, context, permissions, and session state while coordinating an LLM and developer tools." width="88%" fig-align="center"}
 
 ## Popular harnesses
 Create table with harnesses' names, companies behind them and their original feature. Use copilot, claude code, codex, cursor agent, pi and opencode
+
+
