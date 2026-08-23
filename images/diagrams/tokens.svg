@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="390" viewBox="0 0 1200 390" role="img" aria-labelledby="title desc">
+  <title id="title">A sentence split into tokens</title>
+  <desc id="desc">The sentence Agentic developers refactor code is split into tokens. Agentic and refactor are each split into two parts, spaces are shown as separate tokens, and the period is its own token.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#52606d"/>
+    </marker>
+    <style>
+      .label { font: 700 18px system-ui, sans-serif; fill: #52606d; letter-spacing: .06em; }
+      .sentence { font: 600 30px ui-monospace, SFMono-Regular, Consolas, monospace; fill: #172b4d; }
+      .token { font: 600 25px ui-monospace, SFMono-Regular, Consolas, monospace; fill: #172b4d; }
+      .space { font: 700 24px ui-monospace, SFMono-Regular, Consolas, monospace; fill: #8a5b00; }
+      .note { font: 500 18px system-ui, sans-serif; fill: #52606d; }
+      .word { fill: #eaf2ff; stroke: #4c78c2; stroke-width: 2; }
+      .whitespace { fill: #fff2cc; stroke: #c58a18; stroke-width: 2; }
+      .punctuation { fill: #eee9ff; stroke: #6548c7; stroke-width: 2; }
+    </style>
+  </defs>
+
+  <text x="70" y="44" class="label">TEXT</text>
+  <rect x="70" y="62" width="1060" height="74" rx="12" fill="#f6f8fa" stroke="#b8c2cc" stroke-width="2"/>
+  <text x="600" y="109" text-anchor="middle" class="sentence">Agentic developers refactor code.</text>
+
+  <path d="M 600 148 V 202" stroke="#52606d" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+  <text x="620" y="181" class="note">tokenizer</text>
+
+  <text x="70" y="222" class="label">TOKENS</text>
+
+  <rect x="70" y="242" width="132" height="66" rx="10" class="word"/>
+  <rect x="212" y="242" width="78" height="66" rx="10" class="word"/>
+  <rect x="300" y="242" width="66" height="66" rx="10" class="whitespace"/>
+  <rect x="376" y="242" width="190" height="66" rx="10" class="word"/>
+  <rect x="576" y="242" width="66" height="66" rx="10" class="whitespace"/>
+  <rect x="652" y="242" width="80" height="66" rx="10" class="word"/>
+  <rect x="742" y="242" width="126" height="66" rx="10" class="word"/>
+  <rect x="878" y="242" width="66" height="66" rx="10" class="whitespace"/>
+  <rect x="954" y="242" width="105" height="66" rx="10" class="word"/>
+  <rect x="1069" y="242" width="61" height="66" rx="10" class="punctuation"/>
+
+  <text x="136" y="284" text-anchor="middle" class="token">Agent</text>
+  <text x="251" y="284" text-anchor="middle" class="token">ic</text>
+  <text x="333" y="284" text-anchor="middle" class="space">␠</text>
+  <text x="471" y="284" text-anchor="middle" class="token">developers</text>
+  <text x="609" y="284" text-anchor="middle" class="space">␠</text>
+  <text x="692" y="284" text-anchor="middle" class="token">re</text>
+  <text x="805" y="284" text-anchor="middle" class="token">factor</text>
+  <text x="911" y="284" text-anchor="middle" class="space">␠</text>
+  <text x="1007" y="284" text-anchor="middle" class="token">code</text>
+  <text x="1100" y="284" text-anchor="middle" class="token">.</text>
+
+  <rect x="70" y="333" width="24" height="24" rx="5" class="whitespace"/>
+  <text x="106" y="352" class="note"><tspan font-family="ui-monospace, monospace" font-weight="700">␠</tspan> represents a space token</text>
+  <text x="1130" y="352" text-anchor="end" class="note">Illustrative—the split varies by tokenizer</text>
+</svg>

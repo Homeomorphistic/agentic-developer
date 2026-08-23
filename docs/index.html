@@ -202,17 +202,50 @@ Bartosz Chmiela
 <h2>Development environment</h2>
 
 <img data-src="images/diagrams/agent-harness.svg" style="width:95.0%" alt="Agent harness in a development environment" class="r-stretch"></section>
-<section id="llm-recap" class="title-slide slide level1 center">
-<h1>LLM recap</h1>
-<p>Interactive, show models, show costs</p>
-<p>Tokens Context window Reading iteration Compact?</p>
-<p>Prediction engine -&gt; suggestions</p>
-<p>3 big families, open source chinese, auto, a pool on model chocies</p>
-</section>
+<section>
+<section id="llm-fundametals" class="title-slide slide level1 center">
+<h1>LLM fundametals</h1>
 
-<section id="usage" class="title-slide slide level1 center">
-<h1>usage</h1>
-<p>Cost Prompt cashing Effort Intelligence index</p>
+</section>
+<section id="tokens" class="slide level2">
+<h2>Tokens</h2>
+<p>LLMs do not process text as whole sentences. A <strong>tokenizer</strong> splits it into tokens: words, parts of words, punctuation, or whitespace.</p>
+
+<img data-src="images/diagrams/tokens.svg" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%" alt="The sentence Agentic developers refactor code split into tokens, including word fragments, spaces, and punctuation"><div class="callout callout-note callout-style-simple">
+<div class="callout-body">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-content">
+<p>As a rough rule of thumb for English: <strong>1 token ≈ ¾ of a word</strong>. The exact split depends on the tokenizer.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="autoregressive-generation" class="slide level2">
+<h2>Autoregressive generation</h2>
+<!-- Explain how LLMs generate text autoregressively, predicting the next token based on the previous tokens. Include a diagram showing the process of generating a sequence of tokens step by step. -->
+<p>An LLM generates one token at a time. Each chosen token is appended to the context before the model predicts again.</p>
+
+<img data-src="images/diagrams/autoregressive-generation.svg" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%" alt="Three steps of autoregressive generation, with each predicted token appended before the next prediction"><div class="fragment">
+<p>The model is not planning a complete sentence and revealing it—it is repeatedly answering: <strong>“What token should come next?”</strong></p>
+</div>
+</section>
+<section id="prediction-engine---suggestions" class="slide level2">
+<h2>Prediction engine -&gt; suggestions</h2>
+<p>nice segway</p>
+</section>
+<section id="context-window" class="slide level2">
+<h2>Context window</h2>
+</section>
+<section id="attention" class="slide level2">
+<h2>Attention</h2>
+<p>Compact/clear?</p>
+<p>3 big families, open source chinese, auto, a pool on model chocies</p>
+</section></section>
+<section id="effective-usage" class="title-slide slide level1 center">
+<h1>Effective usage</h1>
+<p>Cost Prompt caching Effort Intelligence index</p>
 
 </section>
     </div>
