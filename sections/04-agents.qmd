@@ -49,7 +49,18 @@ and permissions.
 
 ![](images/diagrams/agent-harness.svg){fig-alt="An agent harness inside a development environment. A goal enters the harness, which manages the agent loop, context, permissions, and session state while coordinating an LLM and developer tools." width="88%" fig-align="center"}
 
-## Popular harnesses
-Create table with harnesses' names, companies behind them and their original feature. Use copilot, claude code, codex, cursor agent, pi and opencode
+## Popular harnesses {.smaller}
 
+| Harness | Company / creator | Original differentiator |
+|---|---|---|
+| [GitHub Copilot](https://github.com/features/copilot) | GitHub | Inline code completion in the IDE |
+| [Claude Code](https://www.anthropic.com/product/claude-code) | Anthropic | Terminal-first coding agent |
+| [Codex](https://openai.com/codex/) | OpenAI | Local CLI and isolated cloud tasks |
+| [Cursor Agent](https://cursor.com/docs/agent/overview) | Anysphere | Agent inside an AI-native editor |
+| [Pi](https://github.com/badlogic/pi-mono/tree/main/packages/coding-agent) | Mario Zechner | Minimal, deeply extensible terminal harness |
+| [OpenCode](https://opencode.ai/) | Anomaly | Open-source, provider-agnostic agent |
+
+::: {.callout-note appearance="simple"}
+**Harness ≠ model.** Several harnesses can run models from multiple providers.
+:::
 

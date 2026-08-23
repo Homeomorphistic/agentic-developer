@@ -592,21 +592,72 @@ Bartosz Chmiela
 <p>An <strong>agent harness</strong> is the software runtime that coordinates an agent session: it assembles context, calls the model, executes tool calls, and manages state and permissions.</p>
 
 <img data-src="images/diagrams/agent-harness.svg" class="quarto-figure quarto-figure-center r-stretch" style="width:88.0%" alt="An agent harness inside a development environment. A goal enters the harness, which manages the agent loop, context, permissions, and session state while coordinating an LLM and developer tools."></section>
-<section id="mcp" class="slide level2">
-<h2>MCP</h2>
-</section>
-<section id="execution-environment" class="slide level2">
-<h2>Execution environment</h2>
-<p>local / worktree / cloud</p>
-</section>
-<section id="popular-harnesses" class="slide level2">
+<section id="popular-harnesses" class="slide level2 smaller">
 <h2>Popular harnesses</h2>
-<p>Create table with harnesses’ names, companies behind them and their original feature. Use copilot, claude code, codex, cursor agent, pi and opencode</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Harness</th>
+<th>Company / creator</th>
+<th>Original differentiator</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="https://github.com/features/copilot">GitHub Copilot</a></td>
+<td>GitHub</td>
+<td>Inline code completion in the IDE</td>
+</tr>
+<tr class="even">
+<td><a href="https://www.anthropic.com/product/claude-code">Claude Code</a></td>
+<td>Anthropic</td>
+<td>Terminal-first coding agent</td>
+</tr>
+<tr class="odd">
+<td><a href="https://openai.com/codex/">Codex</a></td>
+<td>OpenAI</td>
+<td>Local CLI and isolated cloud tasks</td>
+</tr>
+<tr class="even">
+<td><a href="https://cursor.com/docs/agent/overview">Cursor Agent</a></td>
+<td>Anysphere</td>
+<td>Agent inside an AI-native editor</td>
+</tr>
+<tr class="odd">
+<td><a href="https://github.com/badlogic/pi-mono/tree/main/packages/coding-agent">Pi</a></td>
+<td>Mario Zechner</td>
+<td>Minimal, deeply extensible terminal harness</td>
+</tr>
+<tr class="even">
+<td><a href="https://opencode.ai/">OpenCode</a></td>
+<td>Anomaly</td>
+<td>Open-source, provider-agnostic agent</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-note callout-style-simple">
+<div class="callout-body">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-content">
+<p><strong>Harness ≠ model.</strong> Several harnesses can run models from multiple providers.</p>
+</div>
+</div>
+</div>
 </section></section>
 <section>
 <section id="agentic-engineering" class="title-slide slide level1 center">
 <h1>Agentic engineering</h1>
 
+</section>
+<section id="basic-workflow" class="slide level2">
+<h2>Basic workflow</h2>
+<p>explore → plan → code → commit workflow</p>
+</section>
+<section id="execution-environment" class="slide level2">
+<h2>Execution environment</h2>
+<p>local / worktree / cloud</p>
 </section>
 <section id="instructions" class="slide level2">
 <h2>Instructions</h2>
@@ -630,6 +681,9 @@ Bartosz Chmiela
 </section>
 <section id="hooks" class="slide level2">
 <h2>Hooks</h2>
+</section>
+<section id="mcp" class="slide level2">
+<h2>MCP</h2>
 
 </section></section>
 
