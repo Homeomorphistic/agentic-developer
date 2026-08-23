@@ -243,6 +243,32 @@ Bartosz Chmiela
 </section>
 <section id="context-window" class="slide level2">
 <h2>Context window</h2>
+<p>The <strong>context window</strong> is the model’s working memory for a single call: the maximum number of tokens it can consider when generating the next response.</p>
+<p>It contains more than your latest prompt:</p>
+<ul>
+<li>the <strong>system message</strong>: role, behaviour, and constraints;</li>
+<li><strong>tool and MCP definitions</strong>: names, descriptions, and input schemas;</li>
+<li>conversation messages, selected code, and tool results;</li>
+<li>space for the model’s generated response.</li>
+</ul>
+<div class="callout callout-note callout-style-simple">
+<div class="callout-body">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-content">
+<p>The context window is finite. As it fills, older or less relevant content may need to be removed, summarized, or compacted.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="context-engineering" class="slide level2">
+<h2>Context engineering</h2>
+
+<img data-src="images/diagrams/context-window.svg" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%" alt="Two successive model calls. The second call resends the system message and tool and MCP definitions, then appends the previous assistant response, a tool result, and the next user message to the conversation context."><p>The harness rebuilds and sends the accumulated context on every call. New user, assistant, and tool-result messages are appended for the next call—the model does not remember them unless they are sent again.</p>
+<div class="fragment">
+<p><em>Demo: Session Info and Developer: Open Chat Debug View</em></p>
+</div>
 </section>
 <section id="attention" class="slide level2">
 <h2>Attention</h2>
