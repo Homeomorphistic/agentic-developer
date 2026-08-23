@@ -17,8 +17,20 @@
 Source: [Claude Academy — The explore → plan → code → commit workflow](https://academy.claude.com/courses/claude-code-101/the-explore-plan-code-commit-workflow)
 :::
 
-## Execution environment
-local / worktree / cloud
+## Execution environment {.smaller}
+
+The **execution environment** is where the harness reads files, runs tools, and
+applies changes. It is a separate choice from the **harness** and the **model**.
+
+| Environment | How it works | Best suited to |
+|:---|:---|:---|
+| **Local** | Works directly in your current checkout | Interactive tasks with immediate feedback |
+| **Worktree** | Uses a separate Git checkout and branch on your machine | Isolated or parallel tasks without disturbing your workspace |
+| **Cloud** | Runs in a remote, isolated environment and returns a branch or change for review | Delegated tasks that can continue independently |
+
+::: {.fragment}
+*Demo: worktree in agents window*
+:::
 
 ## Instructions
 copilot-instructions, CLAUDE.md, AGENTS.md

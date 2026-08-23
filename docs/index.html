@@ -686,35 +686,79 @@ Bartosz Chmiela
 <p>Source: <a href="https://academy.claude.com/courses/claude-code-101/the-explore-plan-code-commit-workflow">Claude Academy — The explore → plan → code → commit workflow</a></p>
 </div>
 </section>
-<section id="execution-environment" class="slide level2">
+<section id="execution-environment" class="slide level2 smaller">
 <h2>Execution environment</h2>
-<p>local / worktree / cloud</p>
+<p>The <strong>execution environment</strong> is where the harness reads files, runs tools, and applies changes. It is a separate choice from the <strong>harness</strong> and the <strong>model</strong>.</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Environment</th>
+<th style="text-align: left;">How it works</th>
+<th style="text-align: left;">Best suited to</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Local</strong></td>
+<td style="text-align: left;">Works directly in your current checkout</td>
+<td style="text-align: left;">Interactive tasks with immediate feedback</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Worktree</strong></td>
+<td style="text-align: left;">Uses a separate Git checkout and branch on your machine</td>
+<td style="text-align: left;">Isolated or parallel tasks without disturbing your workspace</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Cloud</strong></td>
+<td style="text-align: left;">Runs in a remote, isolated environment and returns a branch or change for review</td>
+<td style="text-align: left;">Delegated tasks that can continue independently</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-note callout-style-simple">
+<div class="callout-body">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-content">
+<p>Choose deliberately: proximity gives the agent more of your local environment; isolation reduces interference and limits the blast radius.</p>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p><em>Demo: worktree in agents window</em></p>
+</div>
 </section>
 <section id="instructions" class="slide level2">
 <h2>Instructions</h2>
 <p>copilot-instructions, CLAUDE.md, AGENTS.md</p>
 </section>
-<section id="user-vs-workspace" class="slide level2">
-<h2>User vs workspace</h2>
-</section>
 <section id="copilot-feature-file-instructions" class="slide level2">
 <h2>Copilot feature: file instructions</h2>
+</section>
+<section id="subagents" class="slide level2">
+<h2>Subagents</h2>
 </section>
 <section id="skills" class="slide level2">
 <h2>Skills</h2>
 <p>Progressive disclosure, open standard</p>
 </section>
-<section id="matt-pococs-main-workflow" class="slide level2">
-<h2>Matt Pococ’s main workflow</h2>
-</section>
-<section id="subagents" class="slide level2">
-<h2>Subagents</h2>
+<section id="user-vs-workspace" class="slide level2">
+<h2>User vs workspace</h2>
 </section>
 <section id="hooks" class="slide level2">
 <h2>Hooks</h2>
 </section>
 <section id="mcp" class="slide level2">
 <h2>MCP</h2>
+</section>
+<section id="matt-pococks-main-workflow" class="slide level2">
+<h2>Matt Pocock’s main workflow</h2>
 
 </section></section>
 
