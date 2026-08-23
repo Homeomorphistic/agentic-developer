@@ -12,10 +12,37 @@ One request can trigger **many model calls and tool actions** before the agent
 returns a result.
 :::
 
+## Tools
+
+A **tool** is a capability the model can request to inspect or change something
+outside the model.
+
+The model does not execute a tool directly. It produces a structured **tool
+call**; the harness runs it and adds the **tool result** to the conversation.
+
+::: {.callout-important appearance="simple"}
+## Tool definitions are context
+
+The name, description, and input schema of every available tool are sent to the
+model. The model sees the tool's **interface**, while its implementation remains
+outside the context window.
+:::
+
+## Tool examples
+
+| Tool | What it enables |
+|---|---|
+| File search and reading | Explore a codebase and gather evidence |
+| File editing | Change code and configuration |
+| Terminal and tests | Run commands and verify results |
+| Browser and APIs | Interact with external systems |
+
+::: {.fragment}
+*Demo: let's look at Copilot's tools.*
+:::
+
 ## Agent harness
 Explain what agent harness is and provide example diagram for it.
-
-## Tools
 
 ## MCP
 

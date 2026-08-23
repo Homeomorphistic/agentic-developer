@@ -1,1 +1,17 @@
 # Agentic engineering
+
+## Instructions
+copilot-instructions, CLAUDE.md, AGENTS.md
+
+## User vs workspace
+
+## Copilot feature: file instructions
+
+## Skills
+Progressive disclosure, open standard
+
+## Matt Pococ's main workflow
+
+## Subagents
+
+## Hooks

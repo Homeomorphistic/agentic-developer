@@ -537,12 +537,59 @@ Bartosz Chmiela
 </div>
 </div>
 </section>
+<section id="tools" class="slide level2">
+<h2>Tools</h2>
+<p>A <strong>tool</strong> is a capability the model can request to inspect or change something outside the model.</p>
+<p>The model does not execute a tool directly. It produces a structured <strong>tool call</strong>; the harness runs it and adds the <strong>tool result</strong> to the conversation.</p>
+<div class="callout callout-important callout-titled callout-style-simple">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tool definitions are context</strong></p>
+</div>
+<div class="callout-content">
+<p>The name, description, and input schema of every available tool are sent to the model. The model sees the tool’s <strong>interface</strong>, while its implementation remains outside the context window.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="tool-examples" class="slide level2">
+<h2>Tool examples</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Tool</th>
+<th>What it enables</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>File search and reading</td>
+<td>Explore a codebase and gather evidence</td>
+</tr>
+<tr class="even">
+<td>File editing</td>
+<td>Change code and configuration</td>
+</tr>
+<tr class="odd">
+<td>Terminal and tests</td>
+<td>Run commands and verify results</td>
+</tr>
+<tr class="even">
+<td>Browser and APIs</td>
+<td>Interact with external systems</td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<p><em>Demo: let’s look at Copilot’s tools.</em></p>
+</div>
+</section>
 <section id="agent-harness" class="slide level2">
 <h2>Agent harness</h2>
 <p>Explain what agent harness is and provide example diagram for it.</p>
-</section>
-<section id="tools" class="slide level2">
-<h2>Tools</h2>
 </section>
 <section id="mcp" class="slide level2">
 <h2>MCP</h2>
@@ -554,11 +601,32 @@ Bartosz Chmiela
 <h2>Popular harnesses</h2>
 <p>Create table with harnesses’ names, companies behind them and their original feature. Use copilot, claude code, codex, cursor agent, pi and opencode</p>
 </section></section>
+<section>
 <section id="agentic-engineering" class="title-slide slide level1 center">
 <h1>Agentic engineering</h1>
 
 </section>
+<section id="instructions" class="slide level2">
+<h2>Instructions</h2>
+<p>copilot-instructions, CLAUDE.md, AGENTS.md</p>
+</section>
+<section id="user-vs-workspace" class="slide level2">
+<h2>User vs workspace</h2>
+</section>
+<section id="copilot-feature-file-instructions" class="slide level2">
+<h2>Copilot feature: file instructions</h2>
+</section>
+<section id="skills" class="slide level2">
+<h2>Skills</h2>
+<p>Progressive disclosure</p>
+</section>
+<section id="matt-pococs-main-workflow" class="slide level2">
+<h2>Matt Pococ’s main workflow</h2>
+</section>
+<section id="subagents" class="slide level2">
+<h2>Subagents</h2>
 
+</section></section>
 
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
