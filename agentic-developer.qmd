@@ -119,7 +119,17 @@ Being inside the context window does not guarantee being remembered.
 [^gemini-preview]: Preview model.
 
 ## Alternatives
-open source chinese, auto, a pool on model chocies
+
+| Model family | Company | Country |
+|:---:|:---:|:---:|
+| **Kimi** | Moonshot AI | China |
+| **Qwen** | Alibaba | China |
+| **DeepSeek** | DeepSeek | China |
+| **Muse** | Meta | United States |
+| **Grok** | xAI | United States |
+| **Mistral** | Mistral AI | France |
+
+In Copilot, **Auto** selects a model using task complexity and real-time availability, routing each task to a suitable model—and paid plans receive a **10% discount** on model costs.
 
 # Effective usage
 Cost
