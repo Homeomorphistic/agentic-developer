@@ -23,17 +23,17 @@ local / worktree / cloud
 ## Instructions
 copilot-instructions, CLAUDE.md, AGENTS.md
 
-## User vs workspace
-
 ## Copilot feature: file instructions
+
+## Subagents
 
 ## Skills
 Progressive disclosure, open standard
 
-## Matt Pococ's main workflow
-
-## Subagents
+## User vs workspace
 
 ## Hooks
 
 ## MCP
+
+## Matt Pocock's main workflow
