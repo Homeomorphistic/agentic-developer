@@ -1,0 +1,19 @@
+## Vibe coding 
+
+::: {.fragment}
+> There's a new kind of coding I call "vibe coding", where you fully give in to the vibes, embrace exponentials, and forget that the code even exists. 
+> 
+> -- Andrej Karpathy, February 2025
+:::
+
+## Levels of AI-assisted development
+
+| Level | Developer | AI  |
+|---|---|---|
+| Autocomplete | Current code | Predicting the next code |
+| Conversational assistance | A question + selected context | Explaining or proposing an edit |
+| Agentic coding | A goal | Planning, searching, editing, running |
+| Agentic engineering | A goal + engineered environment | Executing within instructions, workflows, tools, validation |
+
+## Development environment
+![](images/diagrams/agent-harness.svg){fig-alt="Agent harness in a development environment" width="95%"}

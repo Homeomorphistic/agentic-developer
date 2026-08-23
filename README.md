@@ -8,6 +8,8 @@ The project was originally created for the **Spark Academy** training at Aviva u
 
 The material is intended to remain generic enough to reuse outside Aviva.
 
+**[View the presentation →](https://<username>.github.io/agentic-developer/)**
+
 ## Presentation
 
 The training is designed as a roughly **2-hour introduction to AI-assisted and agentic software development**.

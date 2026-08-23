@@ -150,11 +150,372 @@ Bartosz Chmiela
 
   <p class="date">2026-08-25</p>
 </section>
-<section id="quarto" class="slide level2">
-<h2>Quarto</h2>
-<p>Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <a href="https://quarto.org" class="uri">https://quarto.org</a>.</p>
+<section id="vibe-coding" class="slide level2">
+<h2>Vibe coding</h2>
+<div class="fragment">
+<blockquote>
+<p>There’s a new kind of coding I call “vibe coding”, where you fully give in to the vibes, embrace exponentials, and forget that the code even exists.</p>
+<p>– Andrej Karpathy, February 2025</p>
+</blockquote>
+</div>
+</section>
+<section id="levels-of-ai-assisted-development" class="slide level2">
+<h2>Levels of AI-assisted development</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Level</th>
+<th>Developer</th>
+<th>AI</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Autocomplete</td>
+<td>Current code</td>
+<td>Predicting the next code</td>
+</tr>
+<tr class="even">
+<td>Conversational assistance</td>
+<td>A question + selected context</td>
+<td>Explaining or proposing an edit</td>
+</tr>
+<tr class="odd">
+<td>Agentic coding</td>
+<td>A goal</td>
+<td>Planning, searching, editing, running</td>
+</tr>
+<tr class="even">
+<td>Agentic engineering</td>
+<td>A goal + engineered environment</td>
+<td>Executing within instructions, workflows, tools, validation</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="development-environment" class="slide level2">
+<h2>Development environment</h2>
+
+<img data-src="images/diagrams/agent-harness.svg" style="width:95.0%" alt="Agent harness in a development environment" class="r-stretch"></section>
+<section>
+<section id="llm-fundamentals" class="title-slide slide level1 center">
+<h1>LLM fundamentals</h1>
 
 </section>
+<section id="tokens" class="slide level2">
+<h2>Tokens</h2>
+<p>LLMs do not process text as whole sentences. A <strong>tokenizer</strong> splits it into tokens: words, parts of words, punctuation, or whitespace.</p>
+
+<img data-src="images/diagrams/tokens.svg" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%" alt="The sentence Agentic developers refactor code split into tokens, including word fragments, spaces, and punctuation"><div class="callout callout-note callout-style-simple">
+<div class="callout-body">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-content">
+<p>As a rough rule of thumb for English: <strong>1 token ≈ ¾ of a word</strong>. The exact split depends on the tokenizer.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="autoregressive-generation" class="slide level2">
+<h2>Autoregressive generation</h2>
+<p>An LLM generates one token at a time. Each chosen token is appended to the context before the model predicts again.</p>
+
+<img data-src="images/diagrams/autoregressive-generation.svg" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%" alt="Three steps of autoregressive generation, with each predicted token appended before the next prediction"><p>It is repeatedly answering: <strong>“What token should come next?”</strong></p>
+</section>
+<section id="inline-suggestions" class="slide level2">
+<h2>Inline suggestions</h2>
+<p>Copilot began as next-token prediction in your editor. It is essentially generative autocomplete.</p>
+<ul>
+<li>LLM predicts the continuation</li>
+<li>Copilot displays it as an inline suggestion<br>
+</li>
+<li><strong>Press <code>Tab</code> to accept</strong></li>
+</ul>
+<div class="fragment">
+<p><em>Demo: inline suggestions in VS Code</em></p>
+</div>
+</section>
+<section id="context-window" class="slide level2">
+<h2>Context window</h2>
+<p>The <strong>context window</strong> is the model’s working memory for a single call: the maximum number of tokens it can consider when generating the next response.</p>
+<p>It contains more than your latest prompt:</p>
+<ul>
+<li>the <strong>system message</strong>: role, behaviour, and constraints;</li>
+<li><strong>tool and MCP definitions</strong>: names, descriptions, and input schemas;</li>
+<li>conversation messages, selected code, and tool results;</li>
+<li>space for the model’s generated response.</li>
+</ul>
+<div class="callout callout-note callout-style-simple">
+<div class="callout-body">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-content">
+<p>The context window is finite. As it fills, older or less relevant content may need to be removed, summarized, or compacted.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="context-engineering" class="slide level2">
+<h2>Context engineering</h2>
+
+<img data-src="images/diagrams/context-window.svg" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%" alt="Two successive model calls. The second call resends the system message and tool and MCP definitions, then appends the previous assistant response, a tool result, and the next user message to the conversation context."><p>The harness rebuilds and sends the accumulated context on every call. New user, assistant, and tool-result messages are appended for the next call—the model does not remember them unless they are sent again.</p>
+<div class="fragment">
+<p><em>Demo: Session Info and Developer: Open Chat Debug View</em></p>
+</div>
+</section>
+<section id="attention" class="slide level2">
+<h2>Attention</h2>
+<p><strong>Attention</strong> helps the model decide which parts of the context matter.</p>
+<ul>
+<li>As the context fills, useful information competes with noise.</li>
+<li>Recall is often weakest in the middle.</li>
+</ul>
+<div class="callout callout-important callout-titled callout-style-simple">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Lost in the middle</strong></p>
+</div>
+<div class="callout-content">
+<p>Being inside the context window does not guarantee being remembered.</p>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="models" class="title-slide slide level1 center">
+<h1>Models</h1>
+
+</section>
+<section id="frontier-ai-labs" class="slide level2">
+<h2>Frontier AI labs</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th style="text-align: center;">Small / efficient</th>
+<th style="text-align: center;">Medium / balanced</th>
+<th style="text-align: center;">Large / capable</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><img data-src="images/logos/anthropic.svg" alt="Anthropic" width="42"></td>
+<td style="text-align: center;"><strong>Claude Haiku 4.5</strong></td>
+<td style="text-align: center;"><strong>Claude Sonnet 5</strong></td>
+<td style="text-align: center;"><strong>Claude Opus 5</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><img data-src="images/logos/openai.svg" alt="OpenAI" width="42"></td>
+<td style="text-align: center;"><strong>GPT-5.6 Luna</strong></td>
+<td style="text-align: center;"><strong>GPT-5.6 Terra</strong></td>
+<td style="text-align: center;"><strong>GPT-5.6 Sol</strong></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><img data-src="images/logos/google.svg" alt="Google" width="42"></td>
+<td style="text-align: center;"><strong>Gemini 3.5 Flash-Lite</strong></td>
+<td style="text-align: center;"><strong>Gemini 3.7 Flash</strong></td>
+<td style="text-align: center;"><strong>Gemini 3.1 Pro</strong><sup>1</sup></td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<p><em>Poll: which model do you use?</em></p>
+</div>
+<aside><ol class="aside-footnotes"><li id="fn1"><p>Preview model.</p></li></ol></aside></section>
+<section id="alternatives" class="slide level2">
+<h2>Alternatives</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Model family</th>
+<th style="text-align: center;">Company</th>
+<th style="text-align: center;">Country</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><strong>Kimi</strong></td>
+<td style="text-align: center;">Moonshot AI</td>
+<td style="text-align: center;">China</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>Qwen</strong></td>
+<td style="text-align: center;">Alibaba</td>
+<td style="text-align: center;">China</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><strong>DeepSeek</strong></td>
+<td style="text-align: center;">DeepSeek</td>
+<td style="text-align: center;">China</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>Muse</strong></td>
+<td style="text-align: center;">Meta</td>
+<td style="text-align: center;">United States</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><strong>Grok</strong></td>
+<td style="text-align: center;">xAI</td>
+<td style="text-align: center;">United States</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>Mistral</strong></td>
+<td style="text-align: center;">Mistral AI</td>
+<td style="text-align: center;">France</td>
+</tr>
+</tbody>
+</table>
+<p>In Copilot, <strong>Auto</strong> selects a model using task complexity and real-time availability, routing each task to a suitable model—and paid plans receive a <strong>10% discount</strong> on model costs.</p>
+<div class="fragment">
+<p><em>Demo: Copilot model list</em></p>
+</div>
+</section></section>
+<section>
+<section id="effective-usage" class="title-slide slide level1 center">
+<h1>Effective usage</h1>
+
+</section>
+<section id="cost" class="slide level2">
+<h2>Cost</h2>
+<ul>
+<li><strong>Input tokens</strong> are everything sent to the model: system and project instructions, user messages, conversation history, files, and tool results.</li>
+<li><strong>Output tokens</strong> are everything the model generates: reasoning, tool calls, and visible responses.</li>
+</ul>
+<div class="callout callout-note callout-titled callout-style-simple">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Claude Opus 5 standard API pricing</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>$5 / million input tokens</strong> · <strong>$25 / million output tokens</strong></p>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p><em>Demo: let’s look at the model prices</em></p>
+</div>
+</section>
+<section id="conversation-grows" class="slide level2">
+<h2>Conversation grows</h2>
+<p><strong>Call 1</strong> · <code>instructions + user₁</code> → <code>assistant₁</code></p>
+<p><strong>Call 2</strong> · <code>previous input + assistant₁ + user₂</code> → <code>assistant₂</code></p>
+<p><strong>Call 3</strong> · <code>previous input + assistant₂ + user₃</code> → <code>assistant₃</code></p>
+<div class="callout callout-important callout-titled callout-style-simple">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>The pattern</strong></p>
+</div>
+<div class="callout-content">
+<p><code>next input = previous input + output + next user message</code></p>
+</div>
+</div>
+</div>
+<p>The output from one call becomes input on the next. The conversation therefore grows with every turn.</p>
+</section>
+<section id="prompt-caching" class="slide level2">
+<h2>Prompt caching</h2>
+<p>Successive calls often begin with the same content:</p>
+<p><code class="text-muted">[system prompt · instructions · earlier turns]</code> <code>[new message]</code></p>
+<p>The provider can <strong>cache the stable prefix</strong> and process only the newly appended suffix at the normal input rate.</p>
+<ul>
+<li>Cache reads are cheaper than processing the same input again—but not free.</li>
+<li>Cached tokens still occupy the context window.</li>
+<li>Changing the prefix, model, or sometimes effort level can invalidate reuse.</li>
+<li>Coding-agent harnesses usually manage prompt caching automatically.</li>
+</ul>
+</section>
+<section id="effort" class="slide level2">
+<h2>Effort</h2>
+<p><strong>Model choice</strong> sets the capability range. <strong>Effort</strong> controls how thoroughly that model works: reasoning, file exploration, tool use, and verification.</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Use less effort</th>
+<th style="text-align: left;">Start with the default</th>
+<th style="text-align: left;">Use more effort</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Routine, well-scoped tasks</td>
+<td style="text-align: left;">Most development work</td>
+<td style="text-align: left;">Ambiguous tasks, subtle bugs, architecture</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-tip callout-style-simple">
+<div class="callout-body">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-content">
+<p>If the agent skipped files, tests, or verification, raise <strong>effort</strong>. If it worked thoroughly but still could not solve the task, choose a stronger <strong>model</strong>.</p>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p><em>Demo: compare two review sessions with different effort levels</em></p>
+</div>
+</section>
+<section id="maximizing-the-value" class="slide level2">
+<h2>Maximizing the value</h2>
+<p>Total usage grows with <strong>context size × number of turns × parallel sessions</strong>.</p>
+<ul>
+<li><strong>Clear</strong> between unrelated tasks; <strong>compact</strong> when continuing the same task.</li>
+<li>Point directly to relevant files to reduce exploratory search and read turns.</li>
+<li>Keep command and test output concise—it becomes input on later calls.</li>
+<li>Isolate noisy investigations in a subagent when their intermediate context is not useful to the main task.</li>
+</ul>
+</section>
+<section id="intelligence-index" class="slide level2 smaller">
+<h2>Intelligence index</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p>The <strong>Artificial Analysis Intelligence Index</strong> is a composite benchmark for comparing language models—not a literal measure of intelligence.</p>
+<ul>
+<li><strong>Nine evaluations</strong> combined into a 0–100 score</li>
+<li><strong>Index weights:</strong> agent benchmarks contribute 34% of the final score; coding and scientific reasoning contribute 24% each; general capability contributes 18%</li>
+<li>Higher means stronger <strong>overall</strong> capability, not necessarily better for your task</li>
+</ul>
+<p><a href="https://artificialanalysis.ai/evaluations/artificial-analysis-intelligence-index">Explore the live index and methodology</a></p>
+</div><div class="column" style="width:55%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/screenshots/artificial-analysis-intelligence-index.png" class="quarto-figure quarto-figure-center" style="width:100.0%" alt="Artificial Analysis Intelligence Index bar chart comparing model scores; higher is better"></p>
+</figure>
+</div>
+<p><small>Artificial Analysis Intelligence Index v4.1.1</small></p>
+</div></div>
+
+</section></section>
+
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">

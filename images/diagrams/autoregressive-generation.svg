@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="500" viewBox="0 0 1200 500" role="img" aria-labelledby="title desc">
+  <title id="title">Autoregressive text generation</title>
+  <desc id="desc">At each step, the language model predicts a next token, appends it to the existing context, and uses the longer context for its next prediction.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#52606d"/>
+    </marker>
+    <style>
+      .step { font: 700 20px system-ui, sans-serif; fill: #6548c7; letter-spacing: .04em; }
+      .label { font: 600 17px system-ui, sans-serif; fill: #52606d; }
+      .token { font: 600 23px ui-monospace, SFMono-Regular, Consolas, monospace; fill: #172b4d; }
+      .prediction { font: 700 25px ui-monospace, SFMono-Regular, Consolas, monospace; fill: #176b47; }
+      .context { fill: #eaf2ff; stroke: #4c78c2; stroke-width: 2; }
+      .next { fill: #d9f5e5; stroke: #21865a; stroke-width: 3; }
+      .model { fill: #6548c7; }
+    </style>
+  </defs>
+
+  <text x="30" y="54" class="step">STEP 1</text>
+  <text x="30" y="88" class="label">context</text>
+  <rect x="105" y="52" width="105" height="55" rx="10" class="context"/>
+  <rect x="220" y="52" width="130" height="55" rx="10" class="context"/>
+  <text x="128" y="87" class="token">The</text>
+  <text x="237" y="87" class="token"> agent</text>
+  <path d="M 365 79 H 443" stroke="#52606d" stroke-width="3" marker-end="url(#arrow)"/>
+  <rect x="458" y="47" width="120" height="65" rx="32" class="model"/>
+  <text x="490" y="88" font-family="system-ui, sans-serif" font-size="22" font-weight="700" fill="white">LLM</text>
+  <path d="M 593 79 H 671" stroke="#52606d" stroke-width="3" marker-end="url(#arrow)"/>
+  <text x="690" y="43" class="label">predict</text>
+  <rect x="690" y="52" width="135" height="55" rx="10" class="next"/>
+  <text x="707" y="87" class="prediction"> edits</text>
+  <path d="M 840 79 H 930" stroke="#21865a" stroke-width="3" marker-end="url(#arrow)"/>
+  <text x="950" y="85" class="label">append</text>
+
+  <path d="M 600 149 V 179" stroke="#b8c2cc" stroke-width="3" stroke-dasharray="6 7"/>
+
+  <text x="30" y="225" class="step">STEP 2</text>
+  <text x="30" y="259" class="label">context</text>
+  <rect x="105" y="223" width="105" height="55" rx="10" class="context"/>
+  <rect x="220" y="223" width="130" height="55" rx="10" class="context"/>
+  <rect x="360" y="223" width="130" height="55" rx="10" class="next"/>
+  <text x="128" y="258" class="token">The</text>
+  <text x="237" y="258" class="token"> agent</text>
+  <text x="375" y="258" class="token"> edits</text>
+  <path d="M 505 250 H 563" stroke="#52606d" stroke-width="3" marker-end="url(#arrow)"/>
+  <rect x="578" y="218" width="120" height="65" rx="32" class="model"/>
+  <text x="610" y="259" font-family="system-ui, sans-serif" font-size="22" font-weight="700" fill="white">LLM</text>
+  <path d="M 713 250 H 771" stroke="#52606d" stroke-width="3" marker-end="url(#arrow)"/>
+  <text x="790" y="214" class="label">predict</text>
+  <rect x="790" y="223" width="130" height="55" rx="10" class="next"/>
+  <text x="808" y="258" class="prediction"> code</text>
+  <path d="M 935 250 H 1025" stroke="#21865a" stroke-width="3" marker-end="url(#arrow)"/>
+  <text x="1045" y="256" class="label">append</text>
+
+  <path d="M 600 320 V 350" stroke="#b8c2cc" stroke-width="3" stroke-dasharray="6 7"/>
+
+  <text x="30" y="396" class="step">STEP 3</text>
+  <text x="30" y="430" class="label">context</text>
+  <rect x="105" y="394" width="105" height="55" rx="10" class="context"/>
+  <rect x="220" y="394" width="130" height="55" rx="10" class="context"/>
+  <rect x="360" y="394" width="130" height="55" rx="10" class="context"/>
+  <rect x="500" y="394" width="125" height="55" rx="10" class="next"/>
+  <text x="128" y="429" class="token">The</text>
+  <text x="237" y="429" class="token"> agent</text>
+  <text x="375" y="429" class="token"> edits</text>
+  <text x="517" y="429" class="token"> code</text>
+  <path d="M 640 421 H 708" stroke="#52606d" stroke-width="3" marker-end="url(#arrow)"/>
+  <rect x="723" y="389" width="120" height="65" rx="32" class="model"/>
+  <text x="755" y="430" font-family="system-ui, sans-serif" font-size="22" font-weight="700" fill="white">LLM</text>
+  <path d="M 858 421 H 926" stroke="#52606d" stroke-width="3" marker-end="url(#arrow)"/>
+  <text x="945" y="385" class="label">predict</text>
+  <rect x="945" y="394" width="105" height="55" rx="10" class="next"/>
+  <text x="976" y="429" class="prediction">.</text>
+  <text x="1075" y="429" class="label">…repeat</text>
+</svg>

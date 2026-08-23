@@ -7,6 +7,10 @@ email: chmiela.bartosz@gmail.com
 institute: Aviva Warsaw
 ---
 
-## Quarto
+{{< include sections/00-introduction.qmd >}}
 
-Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+{{< include sections/01-llm-fundamentals.qmd >}}
+
+{{< include sections/02-models.qmd >}}
+
+{{< include sections/03-effective-usage.qmd >}}

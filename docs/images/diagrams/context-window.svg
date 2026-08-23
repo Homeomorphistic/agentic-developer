@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="760" viewBox="0 0 1500 760" role="img" aria-labelledby="title desc">
+  <title id="title">Context sent on successive model calls</title>
+  <desc id="desc">The first model call contains a system message, tool and MCP definitions, and a user message. The second call resends those inputs and appends the assistant response, a tool result, and the next user message.</desc>
+  <defs>
+    <style>
+      .label { font-family: Inter, Arial, sans-serif; fill: #172033; }
+      .heading { font-size: 27px; font-weight: 700; letter-spacing: 1px; }
+      .box-title { font-size: 22px; font-weight: 700; }
+      .box-detail { font-size: 17px; fill: #46546a; }
+      .caption { font-size: 21px; fill: #46546a; }
+      .request { fill: #f8fafc; stroke: #52617a; stroke-width: 3; }
+      .system { fill: #eeeaff; stroke: #7564c8; stroke-width: 3; }
+      .tools { fill: #e5f6ef; stroke: #23835c; stroke-width: 3; }
+      .user { fill: #eaf2ff; stroke: #3467b9; stroke-width: 3; }
+      .assistant { fill: #fff3d9; stroke: #c77c12; stroke-width: 3; }
+      .result { fill: #f2eaf8; stroke: #8b5aa5; stroke-width: 3; }
+      .model { fill: #6548c7; stroke: #4f35ad; stroke-width: 3; }
+      .arrow { fill: none; stroke: #46546a; stroke-width: 4; marker-end: url(#arrowhead); }
+      .repeat { fill: none; stroke: #23835c; stroke-width: 3; stroke-dasharray: 9 8; marker-end: url(#green-arrowhead); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 Z" fill="#46546a"/>
+    </marker>
+    <marker id="green-arrowhead" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 Z" fill="#23835c"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="48" class="label heading">CALL 1</text>
+  <rect x="40" y="70" width="1200" height="210" rx="22" class="request"/>
+  <text x="70" y="108" class="label caption">Context window — request assembled by the harness</text>
+
+  <rect x="70" y="132" width="260" height="112" rx="14" class="system"/>
+  <text x="200" y="174" text-anchor="middle" class="label box-title">System message</text>
+  <text x="200" y="207" text-anchor="middle" class="label box-detail">role + constraints</text>
+
+  <rect x="350" y="132" width="310" height="112" rx="14" class="tools"/>
+  <text x="505" y="174" text-anchor="middle" class="label box-title">Tool + MCP definitions</text>
+  <text x="505" y="207" text-anchor="middle" class="label box-detail">descriptions + schemas</text>
+
+  <rect x="680" y="132" width="250" height="112" rx="14" class="user"/>
+  <text x="805" y="174" text-anchor="middle" class="label box-title">User message 1</text>
+  <text x="805" y="207" text-anchor="middle" class="label box-detail">prompt + context</text>
+
+  <rect x="950" y="132" width="260" height="112" rx="14" class="assistant"/>
+  <text x="1080" y="174" text-anchor="middle" class="label box-title">Response budget</text>
+  <text x="1080" y="207" text-anchor="middle" class="label box-detail">generated tokens</text>
+
+  <path d="M1240 175 H1300" class="arrow"/>
+  <rect x="1315" y="132" width="145" height="112" rx="56" class="model"/>
+  <text x="1387" y="197" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="27" font-weight="700" fill="#ffffff">LLM</text>
+
+  <path d="M1387 255 V332 H1190" class="repeat"/>
+  <text x="1270" y="316" text-anchor="middle" class="label caption">response joins the history</text>
+
+  <text x="40" y="373" class="label heading">CALL 2</text>
+  <rect x="40" y="395" width="1420" height="285" rx="22" class="request"/>
+  <text x="70" y="433" class="label caption">The accumulated context is rebuilt and sent again</text>
+
+  <rect x="70" y="457" width="230" height="92" rx="14" class="system"/>
+  <text x="185" y="494" text-anchor="middle" class="label box-title">System message</text>
+  <text x="185" y="524" text-anchor="middle" class="label box-detail">sent again</text>
+
+  <rect x="320" y="457" width="270" height="92" rx="14" class="tools"/>
+  <text x="455" y="494" text-anchor="middle" class="label box-title">Tool + MCP definitions</text>
+  <text x="455" y="524" text-anchor="middle" class="label box-detail">sent again</text>
+
+  <rect x="610" y="457" width="205" height="92" rx="14" class="user"/>
+  <text x="712" y="494" text-anchor="middle" class="label box-title">User message 1</text>
+  <text x="712" y="524" text-anchor="middle" class="label box-detail">history</text>
+
+  <rect x="835" y="457" width="225" height="92" rx="14" class="assistant"/>
+  <text x="947" y="494" text-anchor="middle" class="label box-title">Assistant response</text>
+  <text x="947" y="524" text-anchor="middle" class="label box-detail">appended</text>
+
+  <rect x="1080" y="457" width="165" height="92" rx="14" class="result"/>
+  <text x="1162" y="494" text-anchor="middle" class="label box-title">Tool result</text>
+  <text x="1162" y="524" text-anchor="middle" class="label box-detail">appended</text>
+
+  <rect x="1265" y="457" width="165" height="92" rx="14" class="user"/>
+  <text x="1347" y="494" text-anchor="middle" class="label box-title">User msg 2</text>
+  <text x="1347" y="524" text-anchor="middle" class="label box-detail">appended</text>
+
+  <path d="M640 596 H805" class="arrow"/>
+  <rect x="820" y="566" width="190" height="88" rx="44" class="model"/>
+  <text x="915" y="620" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="27" font-weight="700" fill="#ffffff">LLM</text>
+  <path d="M1010 610 H1175" class="arrow"/>
+  <text x="1200" y="602" class="label box-title">Next response</text>
+  <text x="1200" y="632" class="label box-detail">within the remaining budget</text>
+
+  <text x="750" y="730" text-anchor="middle" class="label caption">If everything no longer fits, the harness must trim, summarize, or compact the context.</text>
+</svg>
