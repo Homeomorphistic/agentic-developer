@@ -77,6 +77,10 @@ Total usage grows with **context size × number of turns × parallel sessions**.
 - Isolate noisy investigations in a subagent when their intermediate context
   is not useful to the main task.
 
+::: {.fragment}
+*Demo: file references*
+:::
+
 ## Intelligence index {.smaller}
 
 :::: {.columns}
