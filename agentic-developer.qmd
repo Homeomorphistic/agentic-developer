@@ -29,7 +29,7 @@ institute: Aviva Warsaw
 ![](images/diagrams/agent-harness.svg){fig-alt="Agent harness in a development environment" width="95%"}
 
 
-# LLM fundametals
+# LLM fundamentals
 
 ## Tokens
 LLMs do not process text as whole sentences. A **tokenizer** splits it into tokens: words, parts of words, punctuation, or whitespace.
@@ -41,18 +41,23 @@ As a rough rule of thumb for English: **1 token ≈ ¾ of a word**. The exact sp
 :::
 
 ## Autoregressive generation
-<!-- Explain how LLMs generate text autoregressively, predicting the next token based on the previous tokens. Include a diagram showing the process of generating a sequence of tokens step by step. -->
-
 An LLM generates one token at a time. Each chosen token is appended to the context before the model predicts again.
 
 ![](images/diagrams/autoregressive-generation.svg){fig-alt="Three steps of autoregressive generation, with each predicted token appended before the next prediction" width="100%" fig-align="center"}
 
-::: {.fragment}
-The model is not planning a complete sentence and revealing it—it is repeatedly answering: **“What token should come next?”**
-:::
+It is repeatedly answering: **“What token should come next?”**
 
-## Prediction engine -> suggestions
-nice segway
+## Inline suggestions
+Copilot began as next-token prediction in your editor. It is essentially generative autocomplete.  
+
+- LLM predicts the continuation
+- Copilot displays it as an inline suggestion  
+- **Press `Tab` to accept**
+
+
+::: {.fragment}
+*Demo: inline suggestions in VS Code*
+:::
 
 ## Context window
 ## Attention

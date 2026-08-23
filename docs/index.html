@@ -203,8 +203,8 @@ Bartosz Chmiela
 
 <img data-src="images/diagrams/agent-harness.svg" style="width:95.0%" alt="Agent harness in a development environment" class="r-stretch"></section>
 <section>
-<section id="llm-fundametals" class="title-slide slide level1 center">
-<h1>LLM fundametals</h1>
+<section id="llm-fundamentals" class="title-slide slide level1 center">
+<h1>LLM fundamentals</h1>
 
 </section>
 <section id="tokens" class="slide level2">
@@ -224,16 +224,22 @@ Bartosz Chmiela
 </section>
 <section id="autoregressive-generation" class="slide level2">
 <h2>Autoregressive generation</h2>
-<!-- Explain how LLMs generate text autoregressively, predicting the next token based on the previous tokens. Include a diagram showing the process of generating a sequence of tokens step by step. -->
 <p>An LLM generates one token at a time. Each chosen token is appended to the context before the model predicts again.</p>
 
-<img data-src="images/diagrams/autoregressive-generation.svg" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%" alt="Three steps of autoregressive generation, with each predicted token appended before the next prediction"><div class="fragment">
-<p>The model is not planning a complete sentence and revealing it—it is repeatedly answering: <strong>“What token should come next?”</strong></p>
-</div>
+<img data-src="images/diagrams/autoregressive-generation.svg" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%" alt="Three steps of autoregressive generation, with each predicted token appended before the next prediction"><p>It is repeatedly answering: <strong>“What token should come next?”</strong></p>
 </section>
-<section id="prediction-engine---suggestions" class="slide level2">
-<h2>Prediction engine -&gt; suggestions</h2>
-<p>nice segway</p>
+<section id="inline-suggestions" class="slide level2">
+<h2>Inline suggestions</h2>
+<p>Copilot began as next-token prediction in your editor. It is essentially generative autocomplete.</p>
+<ul>
+<li>LLM predicts the continuation</li>
+<li>Copilot displays it as an inline suggestion<br>
+</li>
+<li><strong>Press <code>Tab</code> to accept</strong></li>
+</ul>
+<div class="fragment">
+<p><em>Demo: inline suggestions in VS Code</em></p>
+</div>
 </section>
 <section id="context-window" class="slide level2">
 <h2>Context window</h2>
