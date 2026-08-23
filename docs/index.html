@@ -382,13 +382,126 @@ Bartosz Chmiela
 </tbody>
 </table>
 <p>In Copilot, <strong>Auto</strong> selects a model using task complexity and real-time availability, routing each task to a suitable model—and paid plans receive a <strong>10% discount</strong> on model costs.</p>
+<div class="fragment">
+<p><em>Demo: Copilot model list</em></p>
+</div>
 </section></section>
+<section>
 <section id="effective-usage" class="title-slide slide level1 center">
 <h1>Effective usage</h1>
-<p>Cost Prompt caching Effort Intelligence index</p>
 
 </section>
+<section id="cost" class="slide level2">
+<h2>Cost</h2>
+<ul>
+<li><strong>Input tokens</strong> are everything sent to the model: system and project instructions, user messages, conversation history, files, and tool results.</li>
+<li><strong>Output tokens</strong> are everything the model generates: reasoning, tool calls, and visible responses.</li>
+</ul>
+<div class="callout callout-note callout-titled callout-style-simple">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Claude Opus 5 standard API pricing</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>$5 / million input tokens</strong> · <strong>$25 / million output tokens</strong>[^opus-price]</p>
+</div>
+</div>
+</div>
+</section>
+<section id="conversation-grows" class="slide level2">
+<h2>Conversation grows</h2>
+<p><strong>Call 1</strong> · <code>instructions + user₁</code> → <code>assistant₁</code></p>
+<p><strong>Call 2</strong> · <code>previous input + assistant₁ + user₂</code> → <code>assistant₂</code></p>
+<p><strong>Call 3</strong> · <code>previous input + assistant₂ + user₃</code> → <code>assistant₃</code></p>
+<div class="callout callout-important callout-titled callout-style-simple">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>The pattern</strong></p>
+</div>
+<div class="callout-content">
+<p><code>next input = previous input + output + next user message</code></p>
+</div>
+</div>
+</div>
+<p>The output from one call becomes input on the next. The conversation therefore grows with every turn.</p>
+</section>
+<section id="prompt-caching" class="slide level2">
+<h2>Prompt caching</h2>
+<p>Successive calls often begin with the same content:</p>
+<p><code class="text-muted">[system prompt · instructions · earlier turns]</code> <code>[new message]</code></p>
+<p>The provider can <strong>cache the stable prefix</strong> and process only the newly appended suffix at the normal input rate.</p>
+<ul>
+<li>Cache reads are cheaper than processing the same input again—but not free.</li>
+<li>Cached tokens still occupy the context window.</li>
+<li>Changing the prefix, model, or sometimes effort level can invalidate reuse.</li>
+<li>Coding-agent harnesses usually manage prompt caching automatically.</li>
+</ul>
+<div class="callout callout-note callout-style-simple">
+<div class="callout-body">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-content">
+<p>Keep stable content first and append changing content last.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="effort" class="slide level2">
+<h2>Effort</h2>
+<p><strong>Model choice</strong> sets the capability range. <strong>Effort</strong> controls how thoroughly that model works: reasoning, file exploration, tool use, and verification.</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Use less effort</th>
+<th style="text-align: left;">Start with the default</th>
+<th style="text-align: left;">Use more effort</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Routine, well-scoped tasks</td>
+<td style="text-align: left;">Most development work</td>
+<td style="text-align: left;">Ambiguous tasks, subtle bugs, architecture</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-tip callout-style-simple">
+<div class="callout-body">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-content">
+<p>If the agent skipped files, tests, or verification, raise <strong>effort</strong>. If it worked thoroughly but still could not solve the task, choose a stronger <strong>model</strong>.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="maximizing-the-value" class="slide level2">
+<h2>Maximizing the value</h2>
+<p>Total usage grows with <strong>context size × number of turns × parallel sessions</strong>.</p>
+<ul>
+<li><strong>Clear</strong> between unrelated tasks; <strong>compact</strong> when continuing the same task.</li>
+<li>Point directly to relevant files to reduce exploratory search and read turns.</li>
+<li>Keep command and test output concise—it becomes input on later calls.</li>
+<li>Isolate noisy investigations in a subagent when their intermediate context is not useful to the main task.</li>
+</ul>
+</section>
+<section id="intelligence-index" class="slide level2">
+<h2>Intelligence index</h2>
 
+</section></section>
 
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">

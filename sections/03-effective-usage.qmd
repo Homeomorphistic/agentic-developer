@@ -1,5 +1,72 @@
 # Effective usage
-Cost
-Prompt caching
-Effort
-Intelligence index
+
+## Cost
+
+- **Input tokens** are everything sent to the model: system and project
+  instructions, user messages, conversation history, files, and tool results.
+- **Output tokens** are everything the model generates: reasoning, tool calls,
+  and visible responses.
+
+::: {.callout-note appearance="simple"}
+## Claude Opus 5 standard API pricing
+**$5 / million input tokens** · **$25 / million output tokens**
+:::
+
+## Conversation grows
+
+**Call 1** · `instructions + user₁` → `assistant₁`
+
+**Call 2** · `previous input + assistant₁ + user₂` → `assistant₂`
+
+**Call 3** · `previous input + assistant₂ + user₃` → `assistant₃`
+
+::: {.callout-important appearance="simple"}
+## The pattern
+
+`next input = previous input + output + next user message`
+:::
+
+The output from one call becomes input on the next. The conversation therefore
+grows with every turn.
+
+## Prompt caching
+
+Successive calls often begin with the same content:
+
+`[system prompt · instructions · earlier turns]`{.text-muted}
+`[new message]`
+
+The provider can **cache the stable prefix** and process only the newly
+appended suffix at the normal input rate.
+
+- Cache reads are cheaper than processing the same input again—but not free.
+- Cached tokens still occupy the context window.
+- Changing the prefix, model, or sometimes effort level can invalidate reuse.
+- Coding-agent harnesses usually manage prompt caching automatically.
+
+## Effort
+
+**Model choice** sets the capability range. **Effort** controls how thoroughly
+that model works: reasoning, file exploration, tool use, and verification.
+
+| Use less effort | Start with the default | Use more effort |
+|:---|:---|:---|
+| Routine, well-scoped tasks | Most development work | Ambiguous tasks, subtle bugs, architecture |
+
+::: {.callout-tip appearance="simple"}
+If the agent skipped files, tests, or verification, raise **effort**. If it
+worked thoroughly but still could not solve the task, choose a stronger
+**model**.
+:::
+
+## Maximizing the value
+
+Total usage grows with **context size × number of turns × parallel sessions**.
+
+- **Clear** between unrelated tasks; **compact** when continuing the same task.
+- Point directly to relevant files to reduce exploratory search and read turns.
+- Keep command and test output concise—it becomes input on later calls.
+- Isolate noisy investigations in a subagent when their intermediate context
+  is not useful to the main task.
+
+## Intelligence index

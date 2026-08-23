@@ -26,3 +26,7 @@
 | **Mistral** | Mistral AI | France |
 
 In Copilot, **Auto** selects a model using task complexity and real-time availability, routing each task to a suitable model—and paid plans receive a **10% discount** on model costs.
+
+::: {.fragment}
+*Demo: Copilot model list*
+:::
