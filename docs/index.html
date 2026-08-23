@@ -406,9 +406,12 @@ Bartosz Chmiela
 <p><strong>Claude Opus 5 standard API pricing</strong></p>
 </div>
 <div class="callout-content">
-<p><strong>$5 / million input tokens</strong> · <strong>$25 / million output tokens</strong>[^opus-price]</p>
+<p><strong>$5 / million input tokens</strong> · <strong>$25 / million output tokens</strong></p>
 </div>
 </div>
+</div>
+<div class="fragment">
+<p><em>Demo: let’s look at the model prices</em></p>
 </div>
 </section>
 <section id="conversation-grows" class="slide level2">
@@ -442,16 +445,6 @@ Bartosz Chmiela
 <li>Changing the prefix, model, or sometimes effort level can invalidate reuse.</li>
 <li>Coding-agent harnesses usually manage prompt caching automatically.</li>
 </ul>
-<div class="callout callout-note callout-style-simple">
-<div class="callout-body">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-content">
-<p>Keep stable content first and append changing content last.</p>
-</div>
-</div>
-</div>
 </section>
 <section id="effort" class="slide level2">
 <h2>Effort</h2>
@@ -487,6 +480,9 @@ Bartosz Chmiela
 </div>
 </div>
 </div>
+<div class="fragment">
+<p><em>Demo: compare two review sessions with different effort levels</em></p>
+</div>
 </section>
 <section id="maximizing-the-value" class="slide level2">
 <h2>Maximizing the value</h2>
@@ -498,8 +494,25 @@ Bartosz Chmiela
 <li>Isolate noisy investigations in a subagent when their intermediate context is not useful to the main task.</li>
 </ul>
 </section>
-<section id="intelligence-index" class="slide level2">
+<section id="intelligence-index" class="slide level2 smaller">
 <h2>Intelligence index</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p>The <strong>Artificial Analysis Intelligence Index</strong> is a composite benchmark for comparing language models—not a literal measure of intelligence.</p>
+<ul>
+<li><strong>Nine evaluations</strong> combined into a 0–100 score</li>
+<li><strong>Index weights:</strong> agent benchmarks contribute 34% of the final score; coding and scientific reasoning contribute 24% each; general capability contributes 18%</li>
+<li>Higher means stronger <strong>overall</strong> capability, not necessarily better for your task</li>
+</ul>
+<p><a href="https://artificialanalysis.ai/evaluations/artificial-analysis-intelligence-index">Explore the live index and methodology</a></p>
+</div><div class="column" style="width:55%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/screenshots/artificial-analysis-intelligence-index.png" class="quarto-figure quarto-figure-center" style="width:100.0%" alt="Artificial Analysis Intelligence Index bar chart comparing model scores; higher is better"></p>
+</figure>
+</div>
+<p><small>Artificial Analysis Intelligence Index v4.1.1</small></p>
+</div></div>
 
 </section></section>
 
