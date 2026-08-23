@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
   <title id="title">An agent harness in a development environment</title>
-  <desc id="desc">A goal is passed to an agent, which is orchestrated by a harness that connects an LLM and developer tools. Tests and review provide a feedback loop.</desc>
+  <desc id="desc">A goal is passed to a harness, which manages the agent loop, context, permissions, and session state while coordinating an LLM and developer tools.</desc>
   <defs>
     <style>
       .label { font-family: Inter, Arial, sans-serif; fill: #172033; }
@@ -9,10 +9,10 @@
       .small { font-size: 20px; }
       .box { fill: #ffffff; stroke: #52617a; stroke-width: 3; }
       .harness { fill: #eaf2ff; stroke: #3467b9; stroke-width: 4; }
-      .agent { fill: #fff3d9; stroke: #c77c12; stroke-width: 4; }
       .llm { fill: #eeeaff; stroke: #7564c8; stroke-width: 4; }
       .tools { fill: #e5f6ef; stroke: #23835c; stroke-width: 4; }
       .arrow { fill: none; stroke: #46546a; stroke-width: 4; marker-end: url(#arrowhead); }
+      .exchange { marker-start: url(#arrowhead); }
     </style>
     <marker id="arrowhead" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
       <path d="M0,0 L10,4 L0,8 Z" fill="#46546a"/>
@@ -22,12 +22,8 @@
   <rect x="45" y="70" width="1510" height="760" rx="24" fill="#f8fafc" stroke="#34435b" stroke-width="4"/>
   <text x="800" y="45" text-anchor="middle" class="label heading">DEVELOPMENT ENVIRONMENT</text>
 
-  <text x="150" y="180" class="label body">Goal / prompt</text>
-  <path d="M245 195 V265" class="arrow"/>
-
-  <rect x="125" y="280" width="245" height="125" rx="16" class="agent"/>
-  <text x="247" y="355" text-anchor="middle" class="label heading">Agent</text>
-  <path d="M370 342 H475" class="arrow"/>
+  <text x="115" y="325" class="label body">Goal / prompt</text>
+  <path d="M275 315 H475" class="arrow"/>
 
   <rect x="480" y="175" width="920" height="270" rx="20" class="harness"/>
   <text x="530" y="230" class="label heading">Harness</text>
@@ -39,8 +35,8 @@
   <text x="940" y="345" class="label body">permissions</text>
   <text x="940" y="390" class="label body">session state</text>
 
-  <path d="M765 445 V530" class="arrow"/>
-  <path d="M1130 445 V530" class="arrow"/>
+  <path d="M765 455 V530" class="arrow exchange"/>
+  <path d="M1130 455 V530" class="arrow exchange"/>
 
   <rect x="555" y="540" width="420" height="190" rx="18" class="llm"/>
   <text x="765" y="600" text-anchor="middle" class="label heading">LLM</text>

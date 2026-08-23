@@ -493,6 +493,9 @@ Bartosz Chmiela
 <li>Keep command and test output concise—it becomes input on later calls.</li>
 <li>Isolate noisy investigations in a subagent when their intermediate context is not useful to the main task.</li>
 </ul>
+<div class="fragment">
+<p><em>Demo: file references</em></p>
+</div>
 </section>
 <section id="intelligence-index" class="slide level2 smaller">
 <h2>Intelligence index</h2>
@@ -513,6 +516,205 @@ Bartosz Chmiela
 </div>
 <p><small>Artificial Analysis Intelligence Index v4.1.1</small></p>
 </div></div>
+</section></section>
+<section>
+<section id="agents" class="title-slide slide level1 center">
+<h1>Agents</h1>
+
+</section>
+<section id="agentic-loop" class="slide level2">
+<h2>Agentic loop</h2>
+<p>An <strong>agent</strong> is an LLM given a goal, tools, and the ability to choose its next action from the results.</p>
+
+<img data-src="images/diagrams/agentic-loop.svg" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%" alt="The agentic loop: a goal enters the model, which chooses an action; a tool executes it; the result is added to the context for the next model call; the loop repeats until the model returns a completed result"><div class="callout callout-note callout-style-simple">
+<div class="callout-body">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-content">
+<p>One request can trigger <strong>many model calls and tool actions</strong> before the agent returns a result.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="tools" class="slide level2">
+<h2>Tools</h2>
+<p>A <strong>tool</strong> is a capability the model can request to inspect or change something outside the model.</p>
+<p>The model does not execute a tool directly. It produces a structured <strong>tool call</strong>; the harness runs it and adds the <strong>tool result</strong> to the conversation.</p>
+<div class="callout callout-important callout-titled callout-style-simple">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tool definitions are context</strong></p>
+</div>
+<div class="callout-content">
+<p>The name, description, and input schema of every available tool are sent to the model. The model sees the tool’s <strong>interface</strong>, while its implementation remains outside the context window.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="tool-examples" class="slide level2">
+<h2>Tool examples</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Tool</th>
+<th>What it enables</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>File search and reading</td>
+<td>Explore a codebase and gather evidence</td>
+</tr>
+<tr class="even">
+<td>File editing</td>
+<td>Change code and configuration</td>
+</tr>
+<tr class="odd">
+<td>Terminal and tests</td>
+<td>Run commands and verify results</td>
+</tr>
+<tr class="even">
+<td>Browser and APIs</td>
+<td>Interact with external systems</td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<p><em>Demo: let’s look at Copilot’s tools.</em></p>
+</div>
+</section>
+<section id="agent-harness" class="slide level2">
+<h2>Agent harness</h2>
+<p>An <strong>agent harness</strong> is the software runtime that coordinates an agent session: it assembles context, calls the model, executes tool calls, and manages state and permissions.</p>
+
+<img data-src="images/diagrams/agent-harness.svg" class="quarto-figure quarto-figure-center r-stretch" style="width:88.0%" alt="An agent harness inside a development environment. A goal enters the harness, which manages the agent loop, context, permissions, and session state while coordinating an LLM and developer tools."></section>
+<section id="popular-harnesses" class="slide level2 smaller">
+<h2>Popular harnesses</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Harness</th>
+<th>Company / creator</th>
+<th>Original differentiator</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="https://github.com/features/copilot">GitHub Copilot</a></td>
+<td>GitHub</td>
+<td>Inline code completion in the IDE</td>
+</tr>
+<tr class="even">
+<td><a href="https://www.anthropic.com/product/claude-code">Claude Code</a></td>
+<td>Anthropic</td>
+<td>Terminal-first coding agent</td>
+</tr>
+<tr class="odd">
+<td><a href="https://openai.com/codex/">Codex</a></td>
+<td>OpenAI</td>
+<td>Local CLI and isolated cloud tasks</td>
+</tr>
+<tr class="even">
+<td><a href="https://cursor.com/docs/agent/overview">Cursor Agent</a></td>
+<td>Anysphere</td>
+<td>Agent inside an AI-native editor</td>
+</tr>
+<tr class="odd">
+<td><a href="https://github.com/badlogic/pi-mono/tree/main/packages/coding-agent">Pi</a></td>
+<td>Mario Zechner</td>
+<td>Minimal, deeply extensible terminal harness</td>
+</tr>
+<tr class="even">
+<td><a href="https://opencode.ai/">OpenCode</a></td>
+<td>Anomaly</td>
+<td>Open-source, provider-agnostic agent</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-note callout-style-simple">
+<div class="callout-body">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-content">
+<p><strong>Harness ≠ model.</strong> Several harnesses can run models from multiple providers.</p>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="agentic-engineering" class="title-slide slide level1 center">
+<h1>Agentic engineering</h1>
+
+</section>
+<section id="basic-workflow" class="slide level2">
+<h2>Basic workflow</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Phase</th>
+<th style="text-align: left;">Responsibility</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>1. Explore</strong></td>
+<td style="text-align: left;">Understand the codebase and conventions.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>2. Plan</strong></td>
+<td style="text-align: left;">Define the steps and success criteria.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>3. Code</strong></td>
+<td style="text-align: left;">Implement, test, and adjust.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>4. Commit</strong></td>
+<td style="text-align: left;">Review, verify, and commit.</td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<p><em>Demo: plan mode in agents window</em></p>
+</div>
+<div class="footer">
+<p>Source: <a href="https://academy.claude.com/courses/claude-code-101/the-explore-plan-code-commit-workflow">Claude Academy — The explore → plan → code → commit workflow</a></p>
+</div>
+</section>
+<section id="execution-environment" class="slide level2">
+<h2>Execution environment</h2>
+<p>local / worktree / cloud</p>
+</section>
+<section id="instructions" class="slide level2">
+<h2>Instructions</h2>
+<p>copilot-instructions, CLAUDE.md, AGENTS.md</p>
+</section>
+<section id="user-vs-workspace" class="slide level2">
+<h2>User vs workspace</h2>
+</section>
+<section id="copilot-feature-file-instructions" class="slide level2">
+<h2>Copilot feature: file instructions</h2>
+</section>
+<section id="skills" class="slide level2">
+<h2>Skills</h2>
+<p>Progressive disclosure, open standard</p>
+</section>
+<section id="matt-pococs-main-workflow" class="slide level2">
+<h2>Matt Pococ’s main workflow</h2>
+</section>
+<section id="subagents" class="slide level2">
+<h2>Subagents</h2>
+</section>
+<section id="hooks" class="slide level2">
+<h2>Hooks</h2>
+</section>
+<section id="mcp" class="slide level2">
+<h2>MCP</h2>
 
 </section></section>
 

@@ -1,0 +1,66 @@
+# Agents
+
+## Agentic loop
+
+An **agent** is an LLM given a goal, tools, and the ability to choose its next
+action from the results.
+
+![](images/diagrams/agentic-loop.svg){fig-alt="The agentic loop: a goal enters the model, which chooses an action; a tool executes it; the result is added to the context for the next model call; the loop repeats until the model returns a completed result" width="100%" fig-align="center"}
+
+::: {.callout-note appearance="simple"}
+One request can trigger **many model calls and tool actions** before the agent
+returns a result.
+:::
+
+## Tools
+
+A **tool** is a capability the model can request to inspect or change something
+outside the model.
+
+The model does not execute a tool directly. It produces a structured **tool
+call**; the harness runs it and adds the **tool result** to the conversation.
+
+::: {.callout-important appearance="simple"}
+## Tool definitions are context
+
+The name, description, and input schema of every available tool are sent to the
+model. The model sees the tool's **interface**, while its implementation remains
+outside the context window.
+:::
+
+## Tool examples
+
+| Tool | What it enables |
+|---|---|
+| File search and reading | Explore a codebase and gather evidence |
+| File editing | Change code and configuration |
+| Terminal and tests | Run commands and verify results |
+| Browser and APIs | Interact with external systems |
+
+::: {.fragment}
+*Demo: let's look at Copilot's tools.*
+:::
+
+## Agent harness
+
+An **agent harness** is the software runtime that coordinates an agent session:
+it assembles context, calls the model, executes tool calls, and manages state
+and permissions.
+
+![](images/diagrams/agent-harness.svg){fig-alt="An agent harness inside a development environment. A goal enters the harness, which manages the agent loop, context, permissions, and session state while coordinating an LLM and developer tools." width="88%" fig-align="center"}
+
+## Popular harnesses {.smaller}
+
+| Harness | Company / creator | Original differentiator |
+|---|---|---|
+| [GitHub Copilot](https://github.com/features/copilot) | GitHub | Inline code completion in the IDE |
+| [Claude Code](https://www.anthropic.com/product/claude-code) | Anthropic | Terminal-first coding agent |
+| [Codex](https://openai.com/codex/) | OpenAI | Local CLI and isolated cloud tasks |
+| [Cursor Agent](https://cursor.com/docs/agent/overview) | Anysphere | Agent inside an AI-native editor |
+| [Pi](https://github.com/badlogic/pi-mono/tree/main/packages/coding-agent) | Mario Zechner | Minimal, deeply extensible terminal harness |
+| [OpenCode](https://opencode.ai/) | Anomaly | Open-source, provider-agnostic agent |
+
+::: {.callout-note appearance="simple"}
+**Harness ≠ model.** Several harnesses can run models from multiple providers.
+:::
+

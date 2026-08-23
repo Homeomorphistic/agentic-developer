@@ -14,3 +14,7 @@ institute: Aviva Warsaw
 {{< include sections/02-models.qmd >}}
 
 {{< include sections/03-effective-usage.qmd >}}
+
+{{< include sections/04-agents.qmd >}}
+
+{{< include sections/05-agentic-engineering.qmd >}}
