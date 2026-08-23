@@ -89,10 +89,20 @@ does not remember them unless they are sent again.
 :::
 
 ## Attention
-Compact/clear?
+
+**Attention** helps the model decide which parts of the context matter.
+
+- As the context fills, useful information competes with noise.
+- Recall is often weakest in the middle.
+
+::: {.callout-important appearance="simple"}
+## Lost in the middle
+
+Being inside the context window does not guarantee being remembered.
+:::
 
 
-
+# Models
 3 big families, open source chinese, auto, a pool on model chocies
 
 # Effective usage
