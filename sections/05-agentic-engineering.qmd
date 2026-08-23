@@ -1,7 +1,21 @@
 # Agentic engineering
 
 ## Basic workflow
-explore → plan → code → commit workflow
+
+| Phase | Responsibility |
+|:---|:---|
+| **1. Explore** | Understand the codebase and conventions. |
+| **2. Plan** | Define the steps and success criteria. |
+| **3. Code** | Implement, test, and adjust. |
+| **4. Commit** | Review, verify, and commit. |
+
+::: {.fragment}
+*Demo: plan mode in agents window*
+:::
+
+::: footer
+Source: [Claude Academy — The explore → plan → code → commit workflow](https://academy.claude.com/courses/claude-code-101/the-explore-plan-code-commit-workflow)
+:::
 
 ## Execution environment
 local / worktree / cloud
