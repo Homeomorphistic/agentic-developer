@@ -61,7 +61,7 @@ worked thoroughly but still could not solve the task, choose a stronger
 :::
 
 ::: {.fragment}
-*Demo: compare two review sessions with different effort levels*
+*Demo: preparing audience Q&A at different effort levels*
 :::
 
 ## Maximizing the value
