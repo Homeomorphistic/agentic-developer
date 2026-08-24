@@ -896,8 +896,33 @@ Bartosz Chmiela
 <p>Source: <a href="https://agentskills.io/home">Agent Skills — Overview</a></p>
 </div>
 </section>
-<section id="subagents" class="slide level2">
+<section id="subagents" class="slide level2 smaller">
 <h2>Subagents</h2>
+<p>A <strong>subagent</strong> is an isolated agent with its own context window. It receives a focused task and returns the relevant result to the main conversation.</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Delegate when the work benefits from:</strong></p>
+<ul>
+<li><strong>context isolation</strong> — research without flooding the main conversation,</li>
+<li><strong>parallelism</strong> — independent tasks can run simultaneously,</li>
+<li><strong>fresh perspective</strong> — review without the main agent’s assumptions.</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><strong>Keep it with the main agent when:</strong></p>
+<ul>
+<li>the task is small,</li>
+<li>each step depends tightly on the previous one,</li>
+<li>multiple agents would edit the same file,</li>
+<li>the agents need to coordinate directly.</li>
+</ul>
+</div></div>
+<p>Delegate a <strong>clear scope</strong>, the <strong>available tools</strong>, and the <strong>expected output</strong>.</p>
+<div class="fragment">
+<p><em>Demo: run subagents</em></p>
+</div>
+<div class="footer">
+<p>Source: <a href="https://claude.com/blog/subagents-in-claude-code">Claude — How and when to use subagents in Claude Code</a></p>
+</div>
 </section>
 <section id="user-vs-workspace" class="slide level2">
 <h2>User vs workspace</h2>

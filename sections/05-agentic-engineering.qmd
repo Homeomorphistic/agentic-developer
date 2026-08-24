@@ -131,7 +131,39 @@ This keeps many skills available without filling the agent's context window.
 Source: [Agent Skills — Overview](https://agentskills.io/home)
 :::
 
-## Subagents
+## Subagents {.smaller}
+
+A **subagent** is an isolated agent with its own context window. It receives a
+focused task and returns the relevant result to the main conversation.
+
+:::: columns
+::: {.column width="50%"}
+**Delegate when the work benefits from:**
+
+- **context isolation** — research without flooding the main conversation,
+- **parallelism** — independent tasks can run simultaneously,
+- **fresh perspective** — review without the main agent's assumptions.
+:::
+
+::: {.column width="50%"}
+**Keep it with the main agent when:**
+
+- the task is small,
+- each step depends tightly on the previous one,
+- multiple agents would edit the same file,
+- the agents need to coordinate directly.
+:::
+::::
+
+Delegate a **clear scope**, the **available tools**, and the **expected output**.
+
+::: {.fragment}
+*Demo: run subagents*
+:::
+
+::: footer
+Source: [Claude — How and when to use subagents in Claude Code](https://claude.com/blog/subagents-in-claude-code)
+:::
 
 ## User vs workspace
 
