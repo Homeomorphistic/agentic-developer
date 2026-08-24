@@ -32,8 +32,38 @@ applies changes. It is a separate choice from the **harness** and the **model**.
 *Demo: worktree in agents window*
 :::
 
+## Instructions {.smaller}
+
+Instructions give the agent **persistent context** it should follow without
+repeating it in every prompt.
+
+| File | Purpose |
+|:---|:---|
+| `.github/copilot-instructions.md` | Repository-wide guidance for GitHub Copilot |
+| `AGENTS.md` | Portable agent guidance; nest files to specialize instructions for parts of a repository |
+| `CLAUDE.md` | The native project-instructions file for Claude Code |
+
+::: footer
+Sources: [GitHub Docs — Adding repository custom instructions](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions) · [VS Code — Custom instructions](https://code.visualstudio.com/docs/agent-customization/custom-instructions)
+:::
+
 ## Instructions
-copilot-instructions, CLAUDE.md, AGENTS.md
+
+Include what the agent cannot reliably infer from the code:
+
+- architecture and important directories,
+- build, test, lint, and formatting commands,
+- project-specific conventions and constraints,
+- what must be verified before a task is complete.
+
+::: {.callout-tip appearance="simple"}
+Type `/init` in VS Code Copilot Chat to generate a starting point—then review,
+trim, and commit it with the codebase.
+:::
+
+::: {.fragment}
+*Demo: create instruction using `/init` or *
+:::
 
 ## Copilot feature: file instructions
 

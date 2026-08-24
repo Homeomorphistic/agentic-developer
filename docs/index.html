@@ -720,23 +720,65 @@ Bartosz Chmiela
 </tr>
 </tbody>
 </table>
-<div class="callout callout-note callout-style-simple">
+<div class="fragment">
+<p><em>Demo: worktree in agents window</em></p>
+</div>
+</section>
+<section id="instructions" class="slide level2 smaller">
+<h2>Instructions</h2>
+<p>Instructions give the agent <strong>persistent context</strong> it should follow without repeating it in every prompt.</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">File</th>
+<th style="text-align: left;">Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>.github/copilot-instructions.md</code></td>
+<td style="text-align: left;">Repository-wide guidance for GitHub Copilot</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>AGENTS.md</code></td>
+<td style="text-align: left;">Portable agent guidance; nest files to specialize instructions for parts of a repository</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>CLAUDE.md</code></td>
+<td style="text-align: left;">The native project-instructions file for Claude Code</td>
+</tr>
+</tbody>
+</table>
+<div class="footer">
+<p>Sources: <a href="https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions">GitHub Docs — Adding repository custom instructions</a> · <a href="https://code.visualstudio.com/docs/agent-customization/custom-instructions">VS Code — Custom instructions</a></p>
+</div>
+</section>
+<section id="instructions-1" class="slide level2">
+<h2>Instructions</h2>
+<p>Include what the agent cannot reliably infer from the code:</p>
+<ul>
+<li>architecture and important directories,</li>
+<li>build, test, lint, and formatting commands,</li>
+<li>project-specific conventions and constraints,</li>
+<li>what must be verified before a task is complete.</li>
+</ul>
+<div class="callout callout-tip callout-style-simple">
 <div class="callout-body">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-content">
-<p>Choose deliberately: proximity gives the agent more of your local environment; isolation reduces interference and limits the blast radius.</p>
+<p>Type <code>/init</code> in VS Code Copilot Chat to generate a starting point—then review, trim, and commit it with the codebase.</p>
 </div>
 </div>
 </div>
 <div class="fragment">
-<p><em>Demo: worktree in agents window</em></p>
+<p><em>Demo: create instruction using <code>/init</code></em></p>
 </div>
-</section>
-<section id="instructions" class="slide level2">
-<h2>Instructions</h2>
-<p>copilot-instructions, CLAUDE.md, AGENTS.md</p>
 </section>
 <section id="copilot-feature-file-instructions" class="slide level2">
 <h2>Copilot feature: file instructions</h2>
