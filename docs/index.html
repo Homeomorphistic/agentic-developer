@@ -962,8 +962,53 @@ Bartosz Chmiela
 <p>Source: <a href="https://docs.github.com/en/copilot/reference/hooks-reference?tool=vscode&amp;versionId=free-pro-team%40latest&amp;productId=copilot&amp;restPage=concepts%2Cprompting%2Cresponse-customization">GitHub Docs — GitHub Copilot hooks reference</a></p>
 </div>
 </section>
-<section id="mcp" class="slide level2">
-<h2>MCP</h2>
+<section id="model-context-protocol" class="slide level2">
+<h2>Model Context Protocol</h2>
+<p>MCP is an <strong>open-source standard</strong> for connecting AI applications to external systems.</p>
+<div class="columns">
+<div class="column" style="width:48%;">
+<p><strong>AI application or agent</strong></p>
+<p>Uses one standard way to discover and access external capabilities.</p>
+</div><div class="column" style="width:52%;">
+<p><strong>MCP connects it to:</strong></p>
+<ul>
+<li><strong>data sources</strong> — files, databases,</li>
+<li><strong>tools</strong> — search engines, calculators,</li>
+<li><strong>workflows</strong> — specialized prompts.</li>
+</ul>
+</div></div>
+<div class="footer">
+<p>Source: <a href="https://modelcontextprotocol.io/docs/2026-07-28/getting-started/intro">Model Context Protocol — What is the Model Context Protocol (MCP)?</a></p>
+</div>
+</section>
+<section id="model-context-protocol-1" class="slide level2 smaller">
+<h2>Model Context Protocol</h2>
+<p>Connect the coding agent to the systems that already define and deliver the work.</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Jira — read the task</strong></p>
+<ul>
+<li>fetch the assigned ticket,</li>
+<li>extract acceptance criteria and linked context,</li>
+<li>use them to plan before changing code.</li>
+</ul>
+<blockquote>
+<p>Read <code>PAY-123</code>, summarize the acceptance criteria, then propose an implementation plan.</p>
+</blockquote>
+</div><div class="column" style="width:50%;">
+<p><strong>Azure DevOps — create the PR</strong></p>
+<ul>
+<li>wait until the checks pass,</li>
+<li>create a draft pull request,</li>
+<li>include the change summary, test evidence, and ticket reference.</li>
+</ul>
+<blockquote>
+<p>Prepare a draft PR for <code>PAY-123</code>. Ask me to confirm before creating it.</p>
+</blockquote>
+</div></div>
+<div class="footer">
+<p>Sources: <a href="https://support.atlassian.com/atlassian-rovo-mcp-server/docs/supported-tools/">Atlassian Rovo MCP — Supported tools</a> · <a href="https://github.com/microsoft/azure-devops-mcp/blob/main/docs/TOOLSET.md">Azure DevOps MCP — Toolset</a></p>
+</div>
 </section>
 <section id="matt-pococks-main-workflow" class="slide level2">
 <h2>Matt Pocock’s main workflow</h2>
