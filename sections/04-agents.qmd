@@ -58,7 +58,7 @@ assistant, and tool-result messages are appended for the next call—the model
 does not remember them unless they are sent again.
 
 ::: {.fragment}
-*Let's look at Developer: Show Chat Debug View*
+*Let's look at Developer: Show Chat Debug View.*
 :::
 
 ## Popular harnesses {.smaller}

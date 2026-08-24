@@ -13,7 +13,7 @@
 :::
 
 ::: {.fragment}
-*Let's look at the model prices*
+*Let's look at the model prices.*
 :::
 
 ## Conversation grows
@@ -61,7 +61,7 @@ worked thoroughly but still could not solve the task, choose a stronger
 :::
 
 ::: {.fragment}
-*Demo: audience Q&A at different effort levels*
+*Demo: audience Q&A at different effort levels.*
 :::
 
 ## Maximizing the value
