@@ -43,18 +43,6 @@ It contains:
 *Let's look at Session Info*
 :::
 
-## Context engineering
-
-![](images/diagrams/context-window.svg){fig-alt="Two successive model calls. The second call resends the system message and tool and MCP definitions, then appends the previous assistant response, a tool result, and the next user message to the conversation context." width="100%" fig-align="center"}
-
-The harness rebuilds and sends the accumulated context on every call. New user,
-assistant, and tool-result messages are appended for the next call—the model
-does not remember them unless they are sent again.
-
-::: {.fragment}
-*Let's look at Developer: Open Chat Debug View*
-:::
-
 ## Attention
 
 **Attention** helps the model decide which parts of the context matter.
