@@ -69,27 +69,6 @@ trim, and commit it with the codebase.
 *Demo: Instructions with `/init` or `/create-instruction`*
 :::
 
-## File-specific instructions {.smaller}
-
-Use `.github/instructions/NAME.instructions.md` when guidance should apply only
-to particular files or directories.
-
-**How it works**
-
-- Create one or more files whose names end with `.instructions.md`.
-- Set `applyTo` to a glob such as `**/*.py`; separate multiple patterns with
-  commas.
-- Copilot combines every matching file with the repository-wide instructions.
-
-**When to use it**
-
-- language and framework conventions,
-- rules for tests, documentation, or generated code,
-- commands specific to one module in a monorepo.
-
-::: footer
-Source: [GitHub Docs — Creating path-specific custom instructions](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions#creating-path-specific-custom-instructions)
-:::
 
 ## Skills {.smaller}
 
