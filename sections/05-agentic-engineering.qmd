@@ -124,7 +124,7 @@ This keeps many skills available without filling the agent's context window.
 ::::
 
 ::: {.fragment}
-*Let's look at available skills*
+*Let's look at available skills.*
 :::
 
 ::: footer
@@ -154,8 +154,6 @@ focused task and returns the relevant result to the main conversation.
 - the agents need to coordinate directly.
 :::
 ::::
-
-Delegate a **clear scope**, the **available tools**, and the **expected output**.
 
 ::: {.fragment}
 *Demo: run subagents*
