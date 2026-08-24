@@ -242,4 +242,18 @@ work.
 Sources: [Atlassian Rovo MCP — Supported tools](https://support.atlassian.com/atlassian-rovo-mcp-server/docs/supported-tools/) · [Azure DevOps MCP — Toolset](https://github.com/microsoft/azure-devops-mcp/blob/main/docs/TOOLSET.md)
 :::
 
-## Matt Pocock's main workflow
+## Matt Pocock's main workflow {.smaller}
+
+**The idea → ship spine:** each skill's output becomes the next skill's input.
+
+| Step | Skill | Outcome |
+|:---:|:---|:---|
+| **1** | `/grill-with-docs` | Interview the developer; record the decisions. |
+| **2** | `/to-spec` | Turn the agreed conversation into a written spec. |
+| **3** | `/to-tickets` | Split the spec into small, agent-buildable tickets. |
+| **4** | `/implement` | Build the tickets with a test-first workflow. |
+| **5** | `/code-review` | Review the diff against the spec and project standards. |
+
+::: footer
+Source: [Matt Pocock — AI Skills for Real Engineers](https://www.aihero.dev/skills)
+:::

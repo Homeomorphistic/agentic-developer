@@ -1,0 +1,11 @@
+# Demo
+
+# Questions
+
+## Errors made by AI in understanding
+
+- more details with `/grill-with-docs` or `/grilling`
+- context engineering
+- controlling context window
+
+# Now go build with agents.
