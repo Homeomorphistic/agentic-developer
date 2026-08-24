@@ -40,7 +40,7 @@ It contains:
 - space for the model's generated response.
 
 ::: {.fragment}
-*Let's look at Session Info*
+*Let's look at Session Info.*
 :::
 
 ## Attention

@@ -918,7 +918,7 @@ Bartosz Chmiela
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><code>SessionStart</code> / <code>UserPromptSubmit</code></td>
+<td style="text-align: left;"><code>SessionStart</code></td>
 <td style="text-align: left;">Initialize resources or add context</td>
 </tr>
 <tr class="even">
@@ -930,12 +930,12 @@ Bartosz Chmiela
 <td style="text-align: left;">Format changed files, run checks, or record an audit trail</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><code>Stop</code></td>
+<td style="text-align: left;"><code>SessionEnd</code></td>
 <td style="text-align: left;">Verify the result, clean up, or generate a report</td>
 </tr>
 </tbody>
 </table>
-<p>Workspace hooks live in <code>.github/hooks/*.json</code>. VS Code passes event data to the command as JSON on <strong>stdin</strong>; the command can return JSON on <strong>stdout</strong> to add context or influence what happens next.</p>
+<p>Workspace hooks live in <code>.github/hooks/*.json</code>.</p>
 <div class="footer">
 <p>Source: <a href="https://docs.github.com/en/copilot/reference/hooks-reference?tool=vscode&amp;versionId=free-pro-team%40latest&amp;productId=copilot&amp;restPage=concepts%2Cprompting%2Cresponse-customization">GitHub Docs — GitHub Copilot hooks reference</a></p>
 </div>
@@ -966,7 +966,7 @@ Bartosz Chmiela
 </blockquote>
 </div></div>
 <div class="footer">
-<p><a href="https://modelcontextprotocol.io/docs/2026-07-28/getting-started/intro">Model Context Protocol — What is the Model Context Protocol (MCP)?</a> · Sources: <a href="https://support.atlassian.com/atlassian-rovo-mcp-server/docs/supported-tools/">Atlassian Rovo MCP — Supported tools</a> · <a href="https://github.com/microsoft/azure-devops-mcp/blob/main/docs/TOOLSET.md">Azure DevOps MCP — Toolset</a></p>
+<p>Sources: <a href="https://modelcontextprotocol.io/docs/2026-07-28/getting-started/intro">Model Context Protocol — What is the Model Context Protocol (MCP)?</a> · <a href="https://support.atlassian.com/atlassian-rovo-mcp-server/docs/supported-tools/">Atlassian Rovo MCP — Supported tools</a> · <a href="https://github.com/microsoft/azure-devops-mcp/blob/main/docs/TOOLSET.md">Azure DevOps MCP — Toolset</a></p>
 </div>
 </section>
 <section id="matt-pococks-main-workflow" class="slide level2 smaller">
@@ -1008,15 +1008,13 @@ Bartosz Chmiela
 </tr>
 </tbody>
 </table>
+<div class="fragment">
+<p><em>Demo: implement feature with skills.</em></p>
+</div>
 <div class="footer">
 <p>Source: <a href="https://www.aihero.dev/skills">Matt Pocock — AI Skills for Real Engineers</a></p>
 </div>
 </section></section>
-<section id="demo" class="title-slide slide level1 center">
-<h1>Demo</h1>
-
-</section>
-
 <section>
 <section id="questions-from-participants" class="title-slide slide level1 center">
 <h1>Questions from participants</h1>

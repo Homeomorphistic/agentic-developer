@@ -10,7 +10,7 @@
 | **4. Commit** | Review, verify, and commit. |
 
 ::: {.fragment}
-*Demo: Plan mode in Agents Window*
+*Demo: Plan mode in Agents Window.*
 :::
 
 ::: footer
@@ -29,7 +29,7 @@ applies changes. It is a separate choice from the **harness** and the **model**.
 | **Cloud** | Runs in a remote, isolated environment and returns a branch or change for review | Delegated tasks that can continue independently |
 
 ::: {.fragment}
-*Demo: Worktree in Agents Window*
+*Demo: Worktree in Agents Window.*
 :::
 
 ## Instructions {.smaller}
@@ -44,7 +44,7 @@ repeating it in every prompt.
 | `CLAUDE.md` | The native project-instructions file for Claude Code |
 
 ::: {.fragment}
-*Let's look at available instructions*
+*Let's look at available instructions.*
 :::
 
 ::: footer
@@ -66,7 +66,7 @@ trim, and commit it with the codebase.
 :::
 
 ::: {.fragment}
-*Demo: Instructions with `/init` or `/create-instruction`*
+*Demo: Instructions with `/init` or `/create-instruction`.*
 :::
 
 
@@ -149,14 +149,12 @@ Unlike instructions, they do not depend on the model remembering to act.
 
 | Lifecycle event | Example use |
 |:---|:---|
-| `SessionStart` / `UserPromptSubmit` | Initialize resources or add context |
+| `SessionStart` | Initialize resources or add context |
 | `PreToolUse` | Inspect or block a risky command before it runs |
 | `PostToolUse` | Format changed files, run checks, or record an audit trail |
-| `Stop` | Verify the result, clean up, or generate a report |
+| `SessionEnd` | Verify the result, clean up, or generate a report |
 
-Workspace hooks live in `.github/hooks/*.json`. VS Code passes event data to the
-command as JSON on **stdin**; the command can return JSON on **stdout** to add
-context or influence what happens next.
+Workspace hooks live in `.github/hooks/*.json`.
 
 ::: footer
 Source: [GitHub Docs — GitHub Copilot hooks reference](https://docs.github.com/en/copilot/reference/hooks-reference?tool=vscode&versionId=free-pro-team%40latest&productId=copilot&restPage=concepts%2Cprompting%2Cresponse-customization)
@@ -190,8 +188,8 @@ MCP is an **open-source standard** for connecting AI applications to external sy
 ::::
 
 ::: footer
-[Model Context Protocol — What is the Model Context Protocol (MCP)?](https://modelcontextprotocol.io/docs/2026-07-28/getting-started/intro) · 
-Sources: [Atlassian Rovo MCP — Supported tools](https://support.atlassian.com/atlassian-rovo-mcp-server/docs/supported-tools/) · [Azure DevOps MCP — Toolset](https://github.com/microsoft/azure-devops-mcp/blob/main/docs/TOOLSET.md)
+Sources: [Model Context Protocol — What is the Model Context Protocol (MCP)?](https://modelcontextprotocol.io/docs/2026-07-28/getting-started/intro) · 
+[Atlassian Rovo MCP — Supported tools](https://support.atlassian.com/atlassian-rovo-mcp-server/docs/supported-tools/) · [Azure DevOps MCP — Toolset](https://github.com/microsoft/azure-devops-mcp/blob/main/docs/TOOLSET.md)
 :::
 
 ## Matt Pocock's main workflow {.smaller}
@@ -204,6 +202,10 @@ Each skill's output becomes the next skill's input.
 | **2** | `/to-spec` | Turn the agreed conversation into a written spec. |
 | **3** | `/to-tickets` | Split the spec into small, agent-buildable tickets. |
 | **4** | `/implement` | Build the tickets with a test-first workflow. |
+
+::: {.fragment}
+*Demo: implement feature with skills.*
+:::
 
 ::: footer
 Source: [Matt Pocock — AI Skills for Real Engineers](https://www.aihero.dev/skills)
