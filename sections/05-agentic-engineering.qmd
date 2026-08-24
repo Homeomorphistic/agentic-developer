@@ -156,7 +156,7 @@ focused task and returns the relevant result to the main conversation.
 ::::
 
 ::: {.fragment}
-*Demo: run subagents*
+*Demo: audience Q&A with 2 subagents.*
 :::
 
 ::: footer
@@ -183,35 +183,9 @@ context or influence what happens next.
 Source: [GitHub Docs — GitHub Copilot hooks reference](https://docs.github.com/en/copilot/reference/hooks-reference?tool=vscode&versionId=free-pro-team%40latest&productId=copilot&restPage=concepts%2Cprompting%2Cresponse-customization)
 :::
 
-## Model Context Protocol
-
-MCP is an **open-source standard** for connecting AI applications to external
-systems.
-
-:::: columns
-::: {.column width="48%"}
-**AI application or agent**
-
-Uses one standard way to discover and access external capabilities.
-:::
-
-::: {.column width="52%"}
-**MCP connects it to:**
-
-- **data sources** — files, databases,
-- **tools** — search engines, calculators,
-- **workflows** — specialized prompts.
-:::
-::::
-
-::: footer
-Source: [Model Context Protocol — What is the Model Context Protocol (MCP)?](https://modelcontextprotocol.io/docs/2026-07-28/getting-started/intro)
-:::
 
 ## Model Context Protocol  {.smaller}
-
-Connect the coding agent to the systems that already define and deliver the
-work.
+MCP is an **open-source standard** for connecting AI applications to external systems.
 
 :::: columns
 ::: {.column width="50%"}
@@ -237,6 +211,7 @@ work.
 ::::
 
 ::: footer
+[Model Context Protocol — What is the Model Context Protocol (MCP)?](https://modelcontextprotocol.io/docs/2026-07-28/getting-started/intro) · 
 Sources: [Atlassian Rovo MCP — Supported tools](https://support.atlassian.com/atlassian-rovo-mcp-server/docs/supported-tools/) · [Azure DevOps MCP — Toolset](https://github.com/microsoft/azure-devops-mcp/blob/main/docs/TOOLSET.md)
 :::
 
