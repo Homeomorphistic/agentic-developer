@@ -61,12 +61,12 @@ worked thoroughly but still could not solve the task, choose a stronger
 :::
 
 ::: {.fragment}
-*Demo: preparing audience Q&A at different effort levels*
+*Demo: prepare audience Q&A at different effort levels*
 :::
 
 ## Maximizing the value
 
-Total usage grows with **context size × number of turns × parallel sessions**.
+Total usage grows with **context size**, **number of turns** and **parallel sessions**.
 
 - **Clear** between unrelated tasks; **compact** when continuing the same task.
 - Point directly to relevant files to reduce exploratory search and read turns.
@@ -74,6 +74,6 @@ Total usage grows with **context size × number of turns × parallel sessions**.
 - Isolate noisy investigations in a subagent when their intermediate context
   is not useful to the main task.
 
-::: {.fragment}
-*Demo: file references*
+::: footer
+Source: [Claude — Maximizing the value of your Claude Code sessions](https://claude.com/blog/maximizing-the-value-of-your-claude-code-sessions)
 :::
