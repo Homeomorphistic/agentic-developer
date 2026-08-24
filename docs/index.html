@@ -924,11 +924,43 @@ Bartosz Chmiela
 <p>Source: <a href="https://claude.com/blog/subagents-in-claude-code">Claude — How and when to use subagents in Claude Code</a></p>
 </div>
 </section>
-<section id="user-vs-workspace" class="slide level2">
-<h2>User vs workspace</h2>
-</section>
-<section id="hooks" class="slide level2">
+<section id="hooks" class="slide level2 smaller">
 <h2>Hooks</h2>
+<p>Hooks run <strong>deterministic automation</strong> at specific points in the agent lifecycle. Unlike instructions, they do not depend on the model remembering to act.</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Lifecycle event</th>
+<th style="text-align: left;">Example use</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>SessionStart</code> / <code>UserPromptSubmit</code></td>
+<td style="text-align: left;">Initialize resources or add context</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>PreToolUse</code></td>
+<td style="text-align: left;">Inspect or block a risky command before it runs</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>PostToolUse</code></td>
+<td style="text-align: left;">Format changed files, run checks, or record an audit trail</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>Stop</code></td>
+<td style="text-align: left;">Verify the result, clean up, or generate a report</td>
+</tr>
+</tbody>
+</table>
+<p>Workspace hooks live in <code>.github/hooks/*.json</code>. VS Code passes event data to the command as JSON on <strong>stdin</strong>; the command can return JSON on <strong>stdout</strong> to add context or influence what happens next.</p>
+<div class="footer">
+<p>Source: <a href="https://docs.github.com/en/copilot/reference/hooks-reference?tool=vscode&amp;versionId=free-pro-team%40latest&amp;productId=copilot&amp;restPage=concepts%2Cprompting%2Cresponse-customization">GitHub Docs — GitHub Copilot hooks reference</a></p>
+</div>
 </section>
 <section id="mcp" class="slide level2">
 <h2>MCP</h2>
