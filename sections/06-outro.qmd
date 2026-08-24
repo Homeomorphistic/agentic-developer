@@ -1,5 +1,3 @@
-# Demo
-
 # Questions from participants
 
 ## Optimising the prompt
