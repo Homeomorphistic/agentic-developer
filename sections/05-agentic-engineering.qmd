@@ -10,7 +10,7 @@
 | **4. Commit** | Review, verify, and commit. |
 
 ::: {.fragment}
-*Demo: plan mode in agents window*
+*Demo: Plan mode in Agents Window*
 :::
 
 ::: footer
@@ -29,7 +29,7 @@ applies changes. It is a separate choice from the **harness** and the **model**.
 | **Cloud** | Runs in a remote, isolated environment and returns a branch or change for review | Delegated tasks that can continue independently |
 
 ::: {.fragment}
-*Demo: worktree in agents window*
+*Demo: Worktree in Agents Window*
 :::
 
 ## Instructions {.smaller}
@@ -44,7 +44,7 @@ repeating it in every prompt.
 | `CLAUDE.md` | The native project-instructions file for Claude Code |
 
 ::: {.fragment}
-*Demo: let's look at instructions*
+*Let's look at available instructions*
 :::
 
 ::: footer
@@ -66,30 +66,9 @@ trim, and commit it with the codebase.
 :::
 
 ::: {.fragment}
-*Demo: create instruction using `/init` or `/create-instruction`*
+*Demo: Instructions with `/init` or `/create-instruction`*
 :::
 
-## File-specific instructions {.smaller}
-
-Use `.github/instructions/NAME.instructions.md` when guidance should apply only
-to particular files or directories.
-
-**How it works**
-
-- Create one or more files whose names end with `.instructions.md`.
-- Set `applyTo` to a glob such as `**/*.py`; separate multiple patterns with
-  commas.
-- Copilot combines every matching file with the repository-wide instructions.
-
-**When to use it**
-
-- language and framework conventions,
-- rules for tests, documentation, or generated code,
-- commands specific to one module in a monorepo.
-
-::: footer
-Source: [GitHub Docs — Creating path-specific custom instructions](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions#creating-path-specific-custom-instructions)
-:::
 
 ## Skills {.smaller}
 
@@ -124,7 +103,7 @@ This keeps many skills available without filling the agent's context window.
 ::::
 
 ::: {.fragment}
-*Demo: let's look at available skills*
+*Let's look at available skills.*
 :::
 
 ::: footer
@@ -155,10 +134,8 @@ focused task and returns the relevant result to the main conversation.
 :::
 ::::
 
-Delegate a **clear scope**, the **available tools**, and the **expected output**.
-
 ::: {.fragment}
-*Demo: run subagents*
+*Demo: audience Q&A with 2 subagents.*
 :::
 
 ::: footer
@@ -185,35 +162,9 @@ context or influence what happens next.
 Source: [GitHub Docs — GitHub Copilot hooks reference](https://docs.github.com/en/copilot/reference/hooks-reference?tool=vscode&versionId=free-pro-team%40latest&productId=copilot&restPage=concepts%2Cprompting%2Cresponse-customization)
 :::
 
-## Model Context Protocol
-
-MCP is an **open-source standard** for connecting AI applications to external
-systems.
-
-:::: columns
-::: {.column width="48%"}
-**AI application or agent**
-
-Uses one standard way to discover and access external capabilities.
-:::
-
-::: {.column width="52%"}
-**MCP connects it to:**
-
-- **data sources** — files, databases,
-- **tools** — search engines, calculators,
-- **workflows** — specialized prompts.
-:::
-::::
-
-::: footer
-Source: [Model Context Protocol — What is the Model Context Protocol (MCP)?](https://modelcontextprotocol.io/docs/2026-07-28/getting-started/intro)
-:::
 
 ## Model Context Protocol  {.smaller}
-
-Connect the coding agent to the systems that already define and deliver the
-work.
+MCP is an **open-source standard** for connecting AI applications to external systems.
 
 :::: columns
 ::: {.column width="50%"}
@@ -239,12 +190,13 @@ work.
 ::::
 
 ::: footer
+[Model Context Protocol — What is the Model Context Protocol (MCP)?](https://modelcontextprotocol.io/docs/2026-07-28/getting-started/intro) · 
 Sources: [Atlassian Rovo MCP — Supported tools](https://support.atlassian.com/atlassian-rovo-mcp-server/docs/supported-tools/) · [Azure DevOps MCP — Toolset](https://github.com/microsoft/azure-devops-mcp/blob/main/docs/TOOLSET.md)
 :::
 
 ## Matt Pocock's main workflow {.smaller}
 
-**The idea → ship spine:** each skill's output becomes the next skill's input.
+Each skill's output becomes the next skill's input.
 
 | Step | Skill | Outcome |
 |:---:|:---|:---|
@@ -252,7 +204,6 @@ Sources: [Atlassian Rovo MCP — Supported tools](https://support.atlassian.com/
 | **2** | `/to-spec` | Turn the agreed conversation into a written spec. |
 | **3** | `/to-tickets` | Split the spec into small, agent-buildable tickets. |
 | **4** | `/implement` | Build the tickets with a test-first workflow. |
-| **5** | `/code-review` | Review the diff against the spec and project standards. |
 
 ::: footer
 Source: [Matt Pocock — AI Skills for Real Engineers](https://www.aihero.dev/skills)

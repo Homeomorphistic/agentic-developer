@@ -13,7 +13,7 @@
 :::
 
 ::: {.fragment}
-*Demo: let's look at the model prices*
+*Let's look at the model prices*
 :::
 
 ## Conversation grows
@@ -35,18 +35,15 @@ grows with every turn.
 
 ## Prompt caching
 
-Successive calls often begin with the same content:
+Successive calls often share a stable prefix:
 
-`[system prompt · instructions · earlier turns]`{.text-muted}
-`[new message]`
+`[cached: system prompt · instructions · earlier turns] [new message]`
 
-The provider can **cache the stable prefix** and process only the newly
-appended suffix at the normal input rate.
+Only the new suffix is processed at the normal input rate.
 
-- Cache reads are cheaper than processing the same input again—but not free.
-- Cached tokens still occupy the context window.
-- Changing the prefix, model, or sometimes effort level can invalidate reuse.
-- Coding-agent harnesses usually manage prompt caching automatically.
+- Cache reads cost less—but cached tokens still fill the context window.
+- Changing the prefix, model, or effort may prevent reuse.
+- Coding-agent harnesses usually manage caching automatically.
 
 ## Effort
 
@@ -64,12 +61,12 @@ worked thoroughly but still could not solve the task, choose a stronger
 :::
 
 ::: {.fragment}
-*Demo: compare two review sessions with different effort levels*
+*Demo: audience Q&A at different effort levels*
 :::
 
 ## Maximizing the value
 
-Total usage grows with **context size × number of turns × parallel sessions**.
+Total usage grows with **context size**, **number of turns** and **parallel sessions**.
 
 - **Clear** between unrelated tasks; **compact** when continuing the same task.
 - Point directly to relevant files to reduce exploratory search and read turns.
@@ -77,30 +74,6 @@ Total usage grows with **context size × number of turns × parallel sessions**.
 - Isolate noisy investigations in a subagent when their intermediate context
   is not useful to the main task.
 
-::: {.fragment}
-*Demo: file references*
+::: footer
+Source: [Claude — Maximizing the value of your Claude Code sessions](https://claude.com/blog/maximizing-the-value-of-your-claude-code-sessions)
 :::
-
-## Intelligence index {.smaller}
-
-:::: {.columns}
-::: {.column width="45%"}
-The **Artificial Analysis Intelligence Index** is a composite benchmark for
-comparing language models—not a literal measure of intelligence.
-
-- **Nine evaluations** combined into a 0–100 score
-- **Index weights:** agent benchmarks contribute 34% of the final score; coding
-  and scientific reasoning contribute 24% each; general capability contributes
-  18%
-- Higher means stronger **overall** capability, not necessarily better for your
-  task
-
-[Explore the live index and methodology](https://artificialanalysis.ai/evaluations/artificial-analysis-intelligence-index)
-:::
-
-::: {.column width="55%"}
-![](images/screenshots/artificial-analysis-intelligence-index.png){fig-alt="Artificial Analysis Intelligence Index bar chart comparing model scores; higher is better" width="100%" fig-align="center"}
-
-<small>Artificial Analysis Intelligence Index v4.1.1</small>
-:::
-::::

@@ -1,6 +1,6 @@
 # Demo
 
-# Questions from the form
+# Questions from participants
 
 ## Optimising the prompt
 Recommend courses:
@@ -8,7 +8,7 @@ Recommend courses:
 - [AI Fluency by Anthropic](https://academy.claude.com/courses/ai-fluency-framework-foundations)
 - [AI Foundations by OpenAI](https://academy.openai.com/home/courses/ai-foundations-juzjs)
 
-Prompt engineering still matters, but agentic development requires context engineering.
+In agentic development, the emphasis shifts from prompt engineering to context engineering.
 
 ## Generating tests
 
@@ -23,5 +23,18 @@ Prompt engineering still matters, but agentic development requires context engin
 - Weak verification: add acceptance criteria or an executable test.
 
 # Questions?
+
+## Further learning
+
+### Courses
+
+- [DeepLearning.AI](https://www.deeplearning.ai/)
+- [Anthropic Academy](https://academy.claude.com/)
+- [OpenAI Academy](https://academy.openai.com/)
+
+### Blogs
+
+- [Claude Blog](https://claude.com/blog)
+- [OpenAI Developers Blog](https://developers.openai.com/blog)
 
 # Now go build with agents.

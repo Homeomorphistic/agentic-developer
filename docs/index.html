@@ -232,11 +232,12 @@ Bartosz Chmiela
 </section>
 <section id="levels-of-ai-assisted-development" class="slide level2">
 <h2>Levels of AI-assisted development</h2>
+<div data-tbl-colwidths="[24,31,45]">
 <table class="caption-top">
 <colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
+<col style="width: 24%">
+<col style="width: 31%">
+<col style="width: 45%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -268,6 +269,7 @@ Bartosz Chmiela
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <section id="development-environment" class="slide level2">
 <h2>Development environment</h2>
@@ -309,36 +311,20 @@ Bartosz Chmiela
 <li><strong>Press <code>Tab</code> to accept</strong></li>
 </ul>
 <div class="fragment">
-<p><em>Demo: inline suggestions in VS Code</em></p>
+<p><em>Demo: inline suggestions in VS Code.</em></p>
 </div>
 </section>
 <section id="context-window" class="slide level2">
 <h2>Context window</h2>
-<p>The <strong>context window</strong> is the model’s working memory for a single call: the maximum number of tokens it can consider when generating the next response.</p>
-<p>It contains more than your latest prompt:</p>
+<p>The <strong>context window</strong> is the model’s working memory for a single call: the maximum number of tokens it can consider when generating the next response. It contains:</p>
 <ul>
 <li>the <strong>system message</strong>: role, behaviour, and constraints;</li>
 <li><strong>tool and MCP definitions</strong>: names, descriptions, and input schemas;</li>
 <li>conversation messages, selected code, and tool results;</li>
 <li>space for the model’s generated response.</li>
 </ul>
-<div class="callout callout-note callout-style-simple">
-<div class="callout-body">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-content">
-<p>The context window is finite. As it fills, older or less relevant content may need to be removed, summarized, or compacted.</p>
-</div>
-</div>
-</div>
-</section>
-<section id="context-engineering" class="slide level2">
-<h2>Context engineering</h2>
-
-<img data-src="images/diagrams/context-window.svg" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%" alt="Two successive model calls. The second call resends the system message and tool and MCP definitions, then appends the previous assistant response, a tool result, and the next user message to the conversation context."><p>The harness rebuilds and sends the accumulated context on every call. New user, assistant, and tool-result messages are appended for the next call—the model does not remember them unless they are sent again.</p>
 <div class="fragment">
-<p><em>Demo: Session Info and Developer: Open Chat Debug View</em></p>
+<p><em>Let’s look at Session Info</em></p>
 </div>
 </section>
 <section id="attention" class="slide level2">
@@ -452,10 +438,30 @@ Bartosz Chmiela
 </tr>
 </tbody>
 </table>
-<p>In Copilot, <strong>Auto</strong> selects a model using task complexity and real-time availability, routing each task to a suitable model—and paid plans receive a <strong>10% discount</strong> on model costs.</p>
+<p>Copilot Auto picks the model; paid plans get 10% off.</p>
 <div class="fragment">
-<p><em>Demo: Copilot model list</em></p>
+<p><em>Let’s look at Copilot model list.</em></p>
 </div>
+</section>
+<section id="intelligence-index" class="slide level2 smaller">
+<h2>Intelligence index</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p>The <strong>Artificial Analysis Intelligence Index</strong> is a composite benchmark for comparing language models—not a literal measure of intelligence.</p>
+<ul>
+<li><strong>Nine evaluations</strong> combined into a 0–100 score</li>
+<li><strong>Index weights:</strong> agent benchmarks contribute 34% of the final score; coding and scientific reasoning contribute 24% each; general capability contributes 18%</li>
+<li>Higher means stronger <strong>overall</strong> capability, not necessarily better for your task</li>
+</ul>
+<p><a href="https://artificialanalysis.ai/">Explore the live index and methodology</a></p>
+</div><div class="column" style="width:55%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/screenshots/artificial-analysis-intelligence-index.png" class="quarto-figure quarto-figure-center" style="width:100.0%" alt="Artificial Analysis Intelligence Index bar chart comparing model scores; higher is better"></p>
+</figure>
+</div>
+<p><small>Artificial Analysis Intelligence Index v4.1.1</small></p>
+</div></div>
 </section></section>
 <section>
 <section id="effective-usage" class="title-slide slide level1 center">
@@ -482,7 +488,7 @@ Bartosz Chmiela
 </div>
 </div>
 <div class="fragment">
-<p><em>Demo: let’s look at the model prices</em></p>
+<p><em>Let’s look at the model prices</em></p>
 </div>
 </section>
 <section id="conversation-grows" class="slide level2">
@@ -507,14 +513,13 @@ Bartosz Chmiela
 </section>
 <section id="prompt-caching" class="slide level2">
 <h2>Prompt caching</h2>
-<p>Successive calls often begin with the same content:</p>
-<p><code class="text-muted">[system prompt · instructions · earlier turns]</code> <code>[new message]</code></p>
-<p>The provider can <strong>cache the stable prefix</strong> and process only the newly appended suffix at the normal input rate.</p>
+<p>Successive calls often share a stable prefix:</p>
+<p><code>[cached: system prompt · instructions · earlier turns] [new message]</code></p>
+<p>Only the new suffix is processed at the normal input rate.</p>
 <ul>
-<li>Cache reads are cheaper than processing the same input again—but not free.</li>
-<li>Cached tokens still occupy the context window.</li>
-<li>Changing the prefix, model, or sometimes effort level can invalidate reuse.</li>
-<li>Coding-agent harnesses usually manage prompt caching automatically.</li>
+<li>Cache reads cost less—but cached tokens still fill the context window.</li>
+<li>Changing the prefix, model, or effort may prevent reuse.</li>
+<li>Coding-agent harnesses usually manage caching automatically.</li>
 </ul>
 </section>
 <section id="effort" class="slide level2">
@@ -552,41 +557,21 @@ Bartosz Chmiela
 </div>
 </div>
 <div class="fragment">
-<p><em>Demo: compare two review sessions with different effort levels</em></p>
+<p><em>Demo: audience Q&amp;A at different effort levels</em></p>
 </div>
 </section>
 <section id="maximizing-the-value" class="slide level2">
 <h2>Maximizing the value</h2>
-<p>Total usage grows with <strong>context size × number of turns × parallel sessions</strong>.</p>
+<p>Total usage grows with <strong>context size</strong>, <strong>number of turns</strong> and <strong>parallel sessions</strong>.</p>
 <ul>
 <li><strong>Clear</strong> between unrelated tasks; <strong>compact</strong> when continuing the same task.</li>
 <li>Point directly to relevant files to reduce exploratory search and read turns.</li>
 <li>Keep command and test output concise—it becomes input on later calls.</li>
 <li>Isolate noisy investigations in a subagent when their intermediate context is not useful to the main task.</li>
 </ul>
-<div class="fragment">
-<p><em>Demo: file references</em></p>
+<div class="footer">
+<p>Source: <a href="https://claude.com/blog/maximizing-the-value-of-your-claude-code-sessions">Claude — Maximizing the value of your Claude Code sessions</a></p>
 </div>
-</section>
-<section id="intelligence-index" class="slide level2 smaller">
-<h2>Intelligence index</h2>
-<div class="columns">
-<div class="column" style="width:45%;">
-<p>The <strong>Artificial Analysis Intelligence Index</strong> is a composite benchmark for comparing language models—not a literal measure of intelligence.</p>
-<ul>
-<li><strong>Nine evaluations</strong> combined into a 0–100 score</li>
-<li><strong>Index weights:</strong> agent benchmarks contribute 34% of the final score; coding and scientific reasoning contribute 24% each; general capability contributes 18%</li>
-<li>Higher means stronger <strong>overall</strong> capability, not necessarily better for your task</li>
-</ul>
-<p><a href="https://artificialanalysis.ai/evaluations/artificial-analysis-intelligence-index">Explore the live index and methodology</a></p>
-</div><div class="column" style="width:55%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="images/screenshots/artificial-analysis-intelligence-index.png" class="quarto-figure quarto-figure-center" style="width:100.0%" alt="Artificial Analysis Intelligence Index bar chart comparing model scores; higher is better"></p>
-</figure>
-</div>
-<p><small>Artificial Analysis Intelligence Index v4.1.1</small></p>
-</div></div>
 </section></section>
 <section>
 <section id="agents" class="title-slide slide level1 center">
@@ -655,14 +640,22 @@ Bartosz Chmiela
 </tbody>
 </table>
 <div class="fragment">
-<p><em>Demo: let’s look at Copilot’s tools.</em></p>
+<p><em>Let’s look at Copilot’s tools.</em></p>
 </div>
 </section>
 <section id="agent-harness" class="slide level2">
 <h2>Agent harness</h2>
-<p>An <strong>agent harness</strong> is the software runtime that coordinates an agent session: it assembles context, calls the model, executes tool calls, and manages state and permissions.</p>
+<p>An <strong>agent harness</strong> is the software that coordinates an agent session: it assembles context, calls the model, executes tool calls, and manages state and permissions.</p>
 
 <img data-src="images/diagrams/agent-harness.svg" class="quarto-figure quarto-figure-center r-stretch" style="width:88.0%" alt="An agent harness inside a development environment. A goal enters the harness, which manages the agent loop, context, permissions, and session state while coordinating an LLM and developer tools."></section>
+<section id="context-engineering" class="slide level2">
+<h2>Context engineering</h2>
+
+<img data-src="images/diagrams/context-window.svg" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%" alt="Two successive model calls. The second call resends the system message and tool and MCP definitions, then appends the previous assistant response, a tool result, and the next user message to the conversation context."><p>The harness rebuilds and sends the accumulated context on every call. New user, assistant, and tool-result messages are appended for the next call—the model does not remember them unless they are sent again.</p>
+<div class="fragment">
+<p><em>Let’s look at Developer: Show Chat Debug View</em></p>
+</div>
+</section>
 <section id="popular-harnesses" class="slide level2 smaller">
 <h2>Popular harnesses</h2>
 <table class="caption-top">
@@ -751,7 +744,7 @@ Bartosz Chmiela
 </tbody>
 </table>
 <div class="fragment">
-<p><em>Demo: plan mode in agents window</em></p>
+<p><em>Demo: Plan mode in Agents Window</em></p>
 </div>
 <div class="footer">
 <p>Source: <a href="https://academy.claude.com/courses/claude-code-101/the-explore-plan-code-commit-workflow">Claude Academy — The explore → plan → code → commit workflow</a></p>
@@ -792,7 +785,7 @@ Bartosz Chmiela
 </tbody>
 </table>
 <div class="fragment">
-<p><em>Demo: worktree in agents window</em></p>
+<p><em>Demo: Worktree in Agents Window</em></p>
 </div>
 </section>
 <section id="instructions" class="slide level2 smaller">
@@ -825,7 +818,7 @@ Bartosz Chmiela
 </tbody>
 </table>
 <div class="fragment">
-<p><em>Demo: let’s look at instructions</em></p>
+<p><em>Let’s look at available instructions</em></p>
 </div>
 <div class="footer">
 <p>Sources: <a href="https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions">GitHub Docs — Adding repository custom instructions</a> · <a href="https://code.visualstudio.com/docs/agent-customization/custom-instructions">VS Code — Custom instructions</a></p>
@@ -851,26 +844,7 @@ Bartosz Chmiela
 </div>
 </div>
 <div class="fragment">
-<p><em>Demo: create instruction using <code>/init</code> or <code>/create-instruction</code></em></p>
-</div>
-</section>
-<section id="file-specific-instructions" class="slide level2 smaller">
-<h2>File-specific instructions</h2>
-<p>Use <code>.github/instructions/NAME.instructions.md</code> when guidance should apply only to particular files or directories.</p>
-<p><strong>How it works</strong></p>
-<ul>
-<li>Create one or more files whose names end with <code>.instructions.md</code>.</li>
-<li>Set <code>applyTo</code> to a glob such as <code>**/*.py</code>; separate multiple patterns with commas.</li>
-<li>Copilot combines every matching file with the repository-wide instructions.</li>
-</ul>
-<p><strong>When to use it</strong></p>
-<ul>
-<li>language and framework conventions,</li>
-<li>rules for tests, documentation, or generated code,</li>
-<li>commands specific to one module in a monorepo.</li>
-</ul>
-<div class="footer">
-<p>Source: <a href="https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions#creating-path-specific-custom-instructions">GitHub Docs — Creating path-specific custom instructions</a></p>
+<p><em>Demo: Instructions with <code>/init</code> or <code>/create-instruction</code></em></p>
 </div>
 </section>
 <section id="skills" class="slide level2 smaller">
@@ -895,7 +869,7 @@ Bartosz Chmiela
 <p>This keeps many skills available without filling the agent’s context window.</p>
 </div></div>
 <div class="fragment">
-<p><em>Demo: let’s look at available skills</em></p>
+<p><em>Let’s look at available skills.</em></p>
 </div>
 <div class="footer">
 <p>Source: <a href="https://agentskills.io/home">Agent Skills — Overview</a></p>
@@ -921,9 +895,8 @@ Bartosz Chmiela
 <li>the agents need to coordinate directly.</li>
 </ul>
 </div></div>
-<p>Delegate a <strong>clear scope</strong>, the <strong>available tools</strong>, and the <strong>expected output</strong>.</p>
 <div class="fragment">
-<p><em>Demo: run subagents</em></p>
+<p><em>Demo: audience Q&amp;A with 2 subagents.</em></p>
 </div>
 <div class="footer">
 <p>Source: <a href="https://claude.com/blog/subagents-in-claude-code">Claude — How and when to use subagents in Claude Code</a></p>
@@ -967,28 +940,9 @@ Bartosz Chmiela
 <p>Source: <a href="https://docs.github.com/en/copilot/reference/hooks-reference?tool=vscode&amp;versionId=free-pro-team%40latest&amp;productId=copilot&amp;restPage=concepts%2Cprompting%2Cresponse-customization">GitHub Docs — GitHub Copilot hooks reference</a></p>
 </div>
 </section>
-<section id="model-context-protocol" class="slide level2">
+<section id="model-context-protocol" class="slide level2 smaller">
 <h2>Model Context Protocol</h2>
 <p>MCP is an <strong>open-source standard</strong> for connecting AI applications to external systems.</p>
-<div class="columns">
-<div class="column" style="width:48%;">
-<p><strong>AI application or agent</strong></p>
-<p>Uses one standard way to discover and access external capabilities.</p>
-</div><div class="column" style="width:52%;">
-<p><strong>MCP connects it to:</strong></p>
-<ul>
-<li><strong>data sources</strong> — files, databases,</li>
-<li><strong>tools</strong> — search engines, calculators,</li>
-<li><strong>workflows</strong> — specialized prompts.</li>
-</ul>
-</div></div>
-<div class="footer">
-<p>Source: <a href="https://modelcontextprotocol.io/docs/2026-07-28/getting-started/intro">Model Context Protocol — What is the Model Context Protocol (MCP)?</a></p>
-</div>
-</section>
-<section id="model-context-protocol-1" class="slide level2 smaller">
-<h2>Model Context Protocol</h2>
-<p>Connect the coding agent to the systems that already define and deliver the work.</p>
 <div class="columns">
 <div class="column" style="width:50%;">
 <p><strong>Jira — read the task</strong></p>
@@ -1012,12 +966,12 @@ Bartosz Chmiela
 </blockquote>
 </div></div>
 <div class="footer">
-<p>Sources: <a href="https://support.atlassian.com/atlassian-rovo-mcp-server/docs/supported-tools/">Atlassian Rovo MCP — Supported tools</a> · <a href="https://github.com/microsoft/azure-devops-mcp/blob/main/docs/TOOLSET.md">Azure DevOps MCP — Toolset</a></p>
+<p><a href="https://modelcontextprotocol.io/docs/2026-07-28/getting-started/intro">Model Context Protocol — What is the Model Context Protocol (MCP)?</a> · Sources: <a href="https://support.atlassian.com/atlassian-rovo-mcp-server/docs/supported-tools/">Atlassian Rovo MCP — Supported tools</a> · <a href="https://github.com/microsoft/azure-devops-mcp/blob/main/docs/TOOLSET.md">Azure DevOps MCP — Toolset</a></p>
 </div>
 </section>
 <section id="matt-pococks-main-workflow" class="slide level2 smaller">
 <h2>Matt Pocock’s main workflow</h2>
-<p><strong>The idea → ship spine:</strong> each skill’s output becomes the next skill’s input.</p>
+<p>Each skill’s output becomes the next skill’s input.</p>
 <table class="caption-top">
 <colgroup>
 <col style="width: 38%">
@@ -1052,11 +1006,6 @@ Bartosz Chmiela
 <td style="text-align: left;"><code>/implement</code></td>
 <td style="text-align: left;">Build the tickets with a test-first workflow.</td>
 </tr>
-<tr class="odd">
-<td style="text-align: center;"><strong>5</strong></td>
-<td style="text-align: left;"><code>/code-review</code></td>
-<td style="text-align: left;">Review the diff against the spec and project standards.</td>
-</tr>
 </tbody>
 </table>
 <div class="footer">
@@ -1069,8 +1018,8 @@ Bartosz Chmiela
 </section>
 
 <section>
-<section id="questions-from-the-form" class="title-slide slide level1 center">
-<h1>Questions from the form</h1>
+<section id="questions-from-participants" class="title-slide slide level1 center">
+<h1>Questions from participants</h1>
 
 </section>
 <section id="optimising-the-prompt" class="slide level2">
@@ -1080,7 +1029,7 @@ Bartosz Chmiela
 <li><a href="https://academy.claude.com/courses/ai-fluency-framework-foundations">AI Fluency by Anthropic</a></li>
 <li><a href="https://academy.openai.com/home/courses/ai-foundations-juzjs">AI Foundations by OpenAI</a></li>
 </ul>
-<p>Prompt engineering still matters, but agentic development requires context engineering.</p>
+<p>In agentic development, the emphasis shifts from prompt engineering to context engineering.</p>
 </section>
 <section id="generating-tests" class="slide level2">
 <h2>Generating tests</h2>
@@ -1098,11 +1047,25 @@ Bartosz Chmiela
 <li>Weak verification: add acceptance criteria or an executable test.</li>
 </ul>
 </section></section>
+<section>
 <section id="questions" class="title-slide slide level1 center">
 <h1>Questions?</h1>
 
 </section>
-
+<section id="further-learning" class="slide level2">
+<h2>Further learning</h2>
+<h3 id="courses">Courses</h3>
+<ul>
+<li><a href="https://www.deeplearning.ai/">DeepLearning.AI</a></li>
+<li><a href="https://academy.claude.com/">Anthropic Academy</a></li>
+<li><a href="https://academy.openai.com/">OpenAI Academy</a></li>
+</ul>
+<h3 id="blogs">Blogs</h3>
+<ul>
+<li><a href="https://claude.com/blog">Claude Blog</a></li>
+<li><a href="https://developers.openai.com/blog">OpenAI Developers Blog</a></li>
+</ul>
+</section></section>
 <section id="now-go-build-with-agents." class="title-slide slide level1 center">
 <h1>Now go build with agents.</h1>
 

@@ -25,8 +25,32 @@
 | **Grok** | xAI | United States |
 | **Mistral** | Mistral AI | France |
 
-In Copilot, **Auto** selects a model using task complexity and real-time availability, routing each task to a suitable model—and paid plans receive a **10% discount** on model costs.
+Copilot Auto picks the model; paid plans get 10% off.
 
 ::: {.fragment}
-*Demo: Copilot model list*
+*Let's look at Copilot model list.*
 :::
+
+## Intelligence index {.smaller}
+
+:::: {.columns}
+::: {.column width="45%"}
+The **Artificial Analysis Intelligence Index** is a composite benchmark for
+comparing language models—not a literal measure of intelligence.
+
+- **Nine evaluations** combined into a 0–100 score
+- **Index weights:** agent benchmarks contribute 34% of the final score; coding
+  and scientific reasoning contribute 24% each; general capability contributes
+  18%
+- Higher means stronger **overall** capability, not necessarily better for your
+  task
+
+[Explore the live index and methodology](https://artificialanalysis.ai/)
+:::
+
+::: {.column width="55%"}
+![](images/screenshots/artificial-analysis-intelligence-index.png){fig-alt="Artificial Analysis Intelligence Index bar chart comparing model scores; higher is better" width="100%" fig-align="center"}
+
+<small>Artificial Analysis Intelligence Index v4.1.1</small>
+:::
+::::
