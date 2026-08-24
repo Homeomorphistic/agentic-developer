@@ -847,25 +847,6 @@ Bartosz Chmiela
 <p><em>Demo: Instructions with <code>/init</code> or <code>/create-instruction</code></em></p>
 </div>
 </section>
-<section id="file-specific-instructions" class="slide level2 smaller">
-<h2>File-specific instructions</h2>
-<p>Use <code>.github/instructions/NAME.instructions.md</code> when guidance should apply only to particular files or directories.</p>
-<p><strong>How it works</strong></p>
-<ul>
-<li>Create one or more files whose names end with <code>.instructions.md</code>.</li>
-<li>Set <code>applyTo</code> to a glob such as <code>**/*.py</code>; separate multiple patterns with commas.</li>
-<li>Copilot combines every matching file with the repository-wide instructions.</li>
-</ul>
-<p><strong>When to use it</strong></p>
-<ul>
-<li>language and framework conventions,</li>
-<li>rules for tests, documentation, or generated code,</li>
-<li>commands specific to one module in a monorepo.</li>
-</ul>
-<div class="footer">
-<p>Source: <a href="https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions#creating-path-specific-custom-instructions">GitHub Docs — Creating path-specific custom instructions</a></p>
-</div>
-</section>
 <section id="skills" class="slide level2 smaller">
 <h2>Skills</h2>
 <p>Skills package <strong>specialized knowledge and repeatable workflows</strong> so agents can perform particular tasks consistently.</p>
@@ -990,7 +971,7 @@ Bartosz Chmiela
 </section>
 <section id="matt-pococks-main-workflow" class="slide level2 smaller">
 <h2>Matt Pocock’s main workflow</h2>
-<p><strong>The idea → ship spine:</strong> each skill’s output becomes the next skill’s input.</p>
+<p>Each skill’s output becomes the next skill’s input.</p>
 <table class="caption-top">
 <colgroup>
 <col style="width: 38%">
@@ -1025,11 +1006,6 @@ Bartosz Chmiela
 <td style="text-align: left;"><code>/implement</code></td>
 <td style="text-align: left;">Build the tickets with a test-first workflow.</td>
 </tr>
-<tr class="odd">
-<td style="text-align: center;"><strong>5</strong></td>
-<td style="text-align: left;"><code>/code-review</code></td>
-<td style="text-align: left;">Review the diff against the spec and project standards.</td>
-</tr>
 </tbody>
 </table>
 <div class="footer">
@@ -1042,8 +1018,8 @@ Bartosz Chmiela
 </section>
 
 <section>
-<section id="questions-from-the-form" class="title-slide slide level1 center">
-<h1>Questions from the form</h1>
+<section id="questions-from-participants" class="title-slide slide level1 center">
+<h1>Questions from participants</h1>
 
 </section>
 <section id="optimising-the-prompt" class="slide level2">
@@ -1053,7 +1029,7 @@ Bartosz Chmiela
 <li><a href="https://academy.claude.com/courses/ai-fluency-framework-foundations">AI Fluency by Anthropic</a></li>
 <li><a href="https://academy.openai.com/home/courses/ai-foundations-juzjs">AI Foundations by OpenAI</a></li>
 </ul>
-<p>Prompt engineering still matters, but agentic development requires context engineering.</p>
+<p>In agentic development, the emphasis shifts from prompt engineering to context engineering.</p>
 </section>
 <section id="generating-tests" class="slide level2">
 <h2>Generating tests</h2>
@@ -1071,11 +1047,25 @@ Bartosz Chmiela
 <li>Weak verification: add acceptance criteria or an executable test.</li>
 </ul>
 </section></section>
+<section>
 <section id="questions" class="title-slide slide level1 center">
 <h1>Questions?</h1>
 
 </section>
-
+<section id="further-learning" class="slide level2">
+<h2>Further learning</h2>
+<h3 id="courses">Courses</h3>
+<ul>
+<li><a href="https://www.deeplearning.ai/">DeepLearning.AI</a></li>
+<li><a href="https://academy.claude.com/">Anthropic Academy</a></li>
+<li><a href="https://academy.openai.com/">OpenAI Academy</a></li>
+</ul>
+<h3 id="blogs">Blogs</h3>
+<ul>
+<li><a href="https://claude.com/blog">Claude Blog</a></li>
+<li><a href="https://developers.openai.com/blog">OpenAI Developers Blog</a></li>
+</ul>
+</section></section>
 <section id="now-go-build-with-agents." class="title-slide slide level1 center">
 <h1>Now go build with agents.</h1>
 
