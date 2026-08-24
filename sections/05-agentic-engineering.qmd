@@ -10,7 +10,7 @@
 | **4. Commit** | Review, verify, and commit. |
 
 ::: {.fragment}
-*Demo: plan mode in agents window*
+*Demo: Plan mode in Agents Window*
 :::
 
 ::: footer
@@ -29,7 +29,7 @@ applies changes. It is a separate choice from the **harness** and the **model**.
 | **Cloud** | Runs in a remote, isolated environment and returns a branch or change for review | Delegated tasks that can continue independently |
 
 ::: {.fragment}
-*Demo: worktree in agents window*
+*Demo: Worktree in Agents Window*
 :::
 
 ## Instructions {.smaller}
@@ -44,7 +44,7 @@ repeating it in every prompt.
 | `CLAUDE.md` | The native project-instructions file for Claude Code |
 
 ::: {.fragment}
-*Demo: let's look at instructions*
+*Let's look at available instructions*
 :::
 
 ::: footer
@@ -66,7 +66,7 @@ trim, and commit it with the codebase.
 :::
 
 ::: {.fragment}
-*Demo: create instruction using `/init` or `/create-instruction`*
+*Demo: Instructions with `/init` or `/create-instruction`*
 :::
 
 ## File-specific instructions {.smaller}
@@ -124,7 +124,7 @@ This keeps many skills available without filling the agent's context window.
 ::::
 
 ::: {.fragment}
-*Demo: let's look at available skills*
+*Let's look at available skills*
 :::
 
 ::: footer
