@@ -753,6 +753,9 @@ Bartosz Chmiela
 </tr>
 </tbody>
 </table>
+<div class="fragment">
+<p><em>Demo: let’s look at instructions</em></p>
+</div>
 <div class="footer">
 <p>Sources: <a href="https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions">GitHub Docs — Adding repository custom instructions</a> · <a href="https://code.visualstudio.com/docs/agent-customization/custom-instructions">VS Code — Custom instructions</a></p>
 </div>
@@ -777,11 +780,27 @@ Bartosz Chmiela
 </div>
 </div>
 <div class="fragment">
-<p><em>Demo: create instruction using <code>/init</code></em></p>
+<p><em>Demo: create instruction using <code>/init</code> or <code>/create-instruction</code></em></p>
 </div>
 </section>
-<section id="copilot-feature-file-instructions" class="slide level2">
-<h2>Copilot feature: file instructions</h2>
+<section id="file-specific-instructions" class="slide level2 smaller">
+<h2>File-specific instructions</h2>
+<p>Use <code>.github/instructions/NAME.instructions.md</code> when guidance should apply only to particular files or directories.</p>
+<p><strong>How it works</strong></p>
+<ul>
+<li>Create one or more files whose names end with <code>.instructions.md</code>.</li>
+<li>Set <code>applyTo</code> to a glob such as <code>**/*.py</code>; separate multiple patterns with commas.</li>
+<li>Copilot combines every matching file with the repository-wide instructions.</li>
+</ul>
+<p><strong>When to use it</strong></p>
+<ul>
+<li>language and framework conventions,</li>
+<li>rules for tests, documentation, or generated code,</li>
+<li>commands specific to one module in a monorepo.</li>
+</ul>
+<div class="footer">
+<p>Source: <a href="https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions#creating-path-specific-custom-instructions">GitHub Docs — Creating path-specific custom instructions</a></p>
+</div>
 </section>
 <section id="subagents" class="slide level2">
 <h2>Subagents</h2>
