@@ -91,10 +91,47 @@ to particular files or directories.
 Source: [GitHub Docs — Creating path-specific custom instructions](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions#creating-path-specific-custom-instructions)
 :::
 
-## Subagents
+## Skills {.smaller}
 
-## Skills
-Progressive disclosure, open standard
+Skills package **specialized knowledge and repeatable workflows** so agents can
+perform particular tasks consistently.
+
+:::: columns
+::: {.column width="46%"}
+**An open, portable standard**
+
+```text
+my-skill/
+├── SKILL.md       # instructions
+├── scripts/       # optional
+├── references/    # optional
+└── assets/        # optional
+```
+
+Skills can be versioned with the codebase and reused across compatible agent
+products.
+:::
+
+::: {.column width="54%"}
+**Progressive disclosure**
+
+1. **Discover** — load only each skill's name and description.
+2. **Activate** — read `SKILL.md` when the task matches.
+3. **Execute** — load bundled resources only as needed.
+
+This keeps many skills available without filling the agent's context window.
+:::
+::::
+
+::: {.fragment}
+*Demo: let's look at available skills*
+:::
+
+::: footer
+Source: [Agent Skills — Overview](https://agentskills.io/home)
+:::
+
+## Subagents
 
 ## User vs workspace
 
