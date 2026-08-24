@@ -10,12 +10,14 @@
 
 ## Levels of AI-assisted development
 
+::: {tbl-colwidths="[24,31,45]"}
 | Level | Developer | AI  |
 |---|---|---|
 | Autocomplete | Current code | Predicting the next code |
 | Conversational assistance | A question + selected context | Explaining or proposing an edit |
 | Agentic coding | A goal | Planning, searching, editing, running |
 | Agentic engineering | A goal + engineered environment | Executing within instructions, workflows, tools, validation |
+:::
 
 ## Development environment
 ![](images/diagrams/agent-harness.svg){fig-alt="Agent harness in a development environment" width="95%"}
