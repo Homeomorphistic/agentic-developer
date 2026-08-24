@@ -17,23 +17,243 @@
 Source: [Claude Academy — The explore → plan → code → commit workflow](https://academy.claude.com/courses/claude-code-101/the-explore-plan-code-commit-workflow)
 :::
 
-## Execution environment
-local / worktree / cloud
+## Execution environment {.smaller}
+
+The **execution environment** is where the harness reads files, runs tools, and
+applies changes. It is a separate choice from the **harness** and the **model**.
+
+| Environment | How it works | Best suited to |
+|:---|:---|:---|
+| **Local** | Works directly in your current checkout | Interactive tasks with immediate feedback |
+| **Worktree** | Uses a separate Git checkout and branch on your machine | Isolated or parallel tasks without disturbing your workspace |
+| **Cloud** | Runs in a remote, isolated environment and returns a branch or change for review | Delegated tasks that can continue independently |
+
+::: {.fragment}
+*Demo: worktree in agents window*
+:::
+
+## Instructions {.smaller}
+
+Instructions give the agent **persistent context** it should follow without
+repeating it in every prompt.
+
+| File | Purpose |
+|:---|:---|
+| `.github/copilot-instructions.md` | Repository-wide guidance for GitHub Copilot |
+| `AGENTS.md` | Portable agent guidance; nest files to specialize instructions for parts of a repository |
+| `CLAUDE.md` | The native project-instructions file for Claude Code |
+
+::: {.fragment}
+*Demo: let's look at instructions*
+:::
+
+::: footer
+Sources: [GitHub Docs — Adding repository custom instructions](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions) · [VS Code — Custom instructions](https://code.visualstudio.com/docs/agent-customization/custom-instructions)
+:::
 
 ## Instructions
-copilot-instructions, CLAUDE.md, AGENTS.md
 
-## User vs workspace
+Include what the agent cannot reliably infer from the code:
 
-## Copilot feature: file instructions
+- architecture and important directories,
+- build, test, lint, and formatting commands,
+- project-specific conventions and constraints,
+- what must be verified before a task is complete.
 
-## Skills
-Progressive disclosure, open standard
+::: {.callout-tip appearance="simple"}
+Type `/init` in VS Code Copilot Chat to generate a starting point—then review,
+trim, and commit it with the codebase.
+:::
 
-## Matt Pococ's main workflow
+::: {.fragment}
+*Demo: create instruction using `/init` or `/create-instruction`*
+:::
 
-## Subagents
+## File-specific instructions {.smaller}
 
-## Hooks
+Use `.github/instructions/NAME.instructions.md` when guidance should apply only
+to particular files or directories.
 
-## MCP
+**How it works**
+
+- Create one or more files whose names end with `.instructions.md`.
+- Set `applyTo` to a glob such as `**/*.py`; separate multiple patterns with
+  commas.
+- Copilot combines every matching file with the repository-wide instructions.
+
+**When to use it**
+
+- language and framework conventions,
+- rules for tests, documentation, or generated code,
+- commands specific to one module in a monorepo.
+
+::: footer
+Source: [GitHub Docs — Creating path-specific custom instructions](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions#creating-path-specific-custom-instructions)
+:::
+
+## Skills {.smaller}
+
+Skills package **specialized knowledge and repeatable workflows** so agents can
+perform particular tasks consistently.
+
+:::: columns
+::: {.column width="46%"}
+**An open, portable standard**
+
+```text
+my-skill/
+├── SKILL.md       # instructions
+├── scripts/       # optional
+├── references/    # optional
+└── assets/        # optional
+```
+
+Skills can be versioned with the codebase and reused across compatible agent
+products.
+:::
+
+::: {.column width="54%"}
+**Progressive disclosure**
+
+1. **Discover** — load only each skill's name and description.
+2. **Activate** — read `SKILL.md` when the task matches.
+3. **Execute** — load bundled resources only as needed.
+
+This keeps many skills available without filling the agent's context window.
+:::
+::::
+
+::: {.fragment}
+*Demo: let's look at available skills*
+:::
+
+::: footer
+Source: [Agent Skills — Overview](https://agentskills.io/home)
+:::
+
+## Subagents {.smaller}
+
+A **subagent** is an isolated agent with its own context window. It receives a
+focused task and returns the relevant result to the main conversation.
+
+:::: columns
+::: {.column width="50%"}
+**Delegate when the work benefits from:**
+
+- **context isolation** — research without flooding the main conversation,
+- **parallelism** — independent tasks can run simultaneously,
+- **fresh perspective** — review without the main agent's assumptions.
+:::
+
+::: {.column width="50%"}
+**Keep it with the main agent when:**
+
+- the task is small,
+- each step depends tightly on the previous one,
+- multiple agents would edit the same file,
+- the agents need to coordinate directly.
+:::
+::::
+
+Delegate a **clear scope**, the **available tools**, and the **expected output**.
+
+::: {.fragment}
+*Demo: run subagents*
+:::
+
+::: footer
+Source: [Claude — How and when to use subagents in Claude Code](https://claude.com/blog/subagents-in-claude-code)
+:::
+
+## Hooks {.smaller}
+
+Hooks run **deterministic automation** at specific points in the agent lifecycle.
+Unlike instructions, they do not depend on the model remembering to act.
+
+| Lifecycle event | Example use |
+|:---|:---|
+| `SessionStart` / `UserPromptSubmit` | Initialize resources or add context |
+| `PreToolUse` | Inspect or block a risky command before it runs |
+| `PostToolUse` | Format changed files, run checks, or record an audit trail |
+| `Stop` | Verify the result, clean up, or generate a report |
+
+Workspace hooks live in `.github/hooks/*.json`. VS Code passes event data to the
+command as JSON on **stdin**; the command can return JSON on **stdout** to add
+context or influence what happens next.
+
+::: footer
+Source: [GitHub Docs — GitHub Copilot hooks reference](https://docs.github.com/en/copilot/reference/hooks-reference?tool=vscode&versionId=free-pro-team%40latest&productId=copilot&restPage=concepts%2Cprompting%2Cresponse-customization)
+:::
+
+## Model Context Protocol
+
+MCP is an **open-source standard** for connecting AI applications to external
+systems.
+
+:::: columns
+::: {.column width="48%"}
+**AI application or agent**
+
+Uses one standard way to discover and access external capabilities.
+:::
+
+::: {.column width="52%"}
+**MCP connects it to:**
+
+- **data sources** — files, databases,
+- **tools** — search engines, calculators,
+- **workflows** — specialized prompts.
+:::
+::::
+
+::: footer
+Source: [Model Context Protocol — What is the Model Context Protocol (MCP)?](https://modelcontextprotocol.io/docs/2026-07-28/getting-started/intro)
+:::
+
+## Model Context Protocol  {.smaller}
+
+Connect the coding agent to the systems that already define and deliver the
+work.
+
+:::: columns
+::: {.column width="50%"}
+**Jira — read the task**
+
+- fetch the assigned ticket,
+- extract acceptance criteria and linked context,
+- use them to plan before changing code.
+
+> Read `PAY-123`, summarize the acceptance criteria, then propose an
+> implementation plan.
+:::
+
+::: {.column width="50%"}
+**Azure DevOps — create the PR**
+
+- wait until the checks pass,
+- create a draft pull request,
+- include the change summary, test evidence, and ticket reference.
+
+> Prepare a draft PR for `PAY-123`. Ask me to confirm before creating it.
+:::
+::::
+
+::: footer
+Sources: [Atlassian Rovo MCP — Supported tools](https://support.atlassian.com/atlassian-rovo-mcp-server/docs/supported-tools/) · [Azure DevOps MCP — Toolset](https://github.com/microsoft/azure-devops-mcp/blob/main/docs/TOOLSET.md)
+:::
+
+## Matt Pocock's main workflow {.smaller}
+
+**The idea → ship spine:** each skill's output becomes the next skill's input.
+
+| Step | Skill | Outcome |
+|:---:|:---|:---|
+| **1** | `/grill-with-docs` | Interview the developer; record the decisions. |
+| **2** | `/to-spec` | Turn the agreed conversation into a written spec. |
+| **3** | `/to-tickets` | Split the spec into small, agent-buildable tickets. |
+| **4** | `/implement` | Build the tickets with a test-first workflow. |
+| **5** | `/code-review` | Review the diff against the spec and project standards. |
+
+::: footer
+Source: [Matt Pocock — AI Skills for Real Engineers](https://www.aihero.dev/skills)
+:::

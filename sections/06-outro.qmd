@@ -1,0 +1,27 @@
+# Demo
+
+# Questions from the form
+
+## Optimising the prompt
+Recommend courses:
+
+- [AI Fluency by Anthropic](https://academy.claude.com/courses/ai-fluency-framework-foundations)
+- [AI Foundations by OpenAI](https://academy.openai.com/home/courses/ai-foundations-juzjs)
+
+Prompt engineering still matters, but agentic development requires context engineering.
+
+## Generating tests
+
+- Record the repository’s test framework, commands, conventions, fixtures, and definition of done in `AGENTS.md`
+- Work with `/tdd` skill
+
+## Errors made by AI in understanding
+
+- Ambiguous requirement: define terms and edge cases with `/grill-with-docs` or `/grilling`.
+- Too much context: remove irrelevant material or start a focused conversation.
+- Task too large: split it into independently verifiable steps using `/to-tickets`.
+- Weak verification: add acceptance criteria or an executable test.
+
+# Questions?
+
+# Now go build with agents.

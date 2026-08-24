@@ -8,40 +8,47 @@ The project was originally created for the **Spark Academy** training at Aviva u
 
 The material is intended to remain generic enough to reuse outside Aviva.
 
-**[View the presentation →](https://<username>.github.io/agentic-developer/)**
+**[View the presentation →](https://homeomorphistic.github.io/agentic-developer)**
 
 ## Presentation
 
-The training is designed as a roughly **2-hour introduction to AI-assisted and agentic software development**.
+The training is designed as a roughly **2-hour introduction to AI-assisted and agentic software development**. It combines conceptual material with short demonstrations in VS Code and GitHub Copilot.
 
-The planned narrative is:
+The presentation follows this progression:
 
-1. **Agentic engineering**
-   - What agents are
-   - Agents vs. agent harnesses
-   - GitHub Copilot and other coding agents
+1. **From vibe coding to agentic engineering**
+   - Levels of AI-assisted development
+   - The relationship between the developer, model, tools, and development environment
 
-2. **LLM foundations for developers**
-   - Model capabilities and model selection
-   - Intelligence benchmarks
-   - Token usage and cost
-   - Context windows
-   - Prompt engineering and context engineering
+2. **LLM fundamentals**
+   - Tokens and autoregressive generation
+   - Inline code suggestions
+   - Context windows and context engineering
+   - Attention and the “lost in the middle” problem
 
-3. **AI-assisted development in VS Code**
-   - Inline suggestions
-   - Inline chat
-   - Copilot Chat
-   - Providing files, references, and context
+3. **Models and effective usage**
+   - Major model families and model selection
+   - Input and output token costs
+   - Conversation growth and prompt caching
+   - Model capability versus reasoning effort
+   - Managing context, turns, and parallel sessions
+   - Using benchmarks to compare models
 
-4. **From AI assistance to agentic development**
-   - Project instructions and `AGENTS.md`
+4. **Agents and agent harnesses**
+   - The agentic loop
+   - Tools and tool calls
+   - The role of the agent harness
+   - Examples of popular coding-agent harnesses
+
+5. **Agentic engineering in practice**
+   - The explore → plan → code → commit workflow
+   - Local, worktree, and cloud execution environments
+   - Repository-wide and file-specific instructions
    - Reusable agent skills
-   - Workflow-oriented skills
-   - Subagents
-   - Task decomposition
-   - Verification loops
-   - Spec-driven development
+   - Subagents and task delegation
+   - Deterministic automation with hooks
+   - Connecting external systems through the Model Context Protocol
+   - Moving from an idea to a specification, tickets, implementation, and review
 
 ## Technology
 
@@ -71,7 +78,3 @@ Render it:
 ```bash
 quarto render
 ```
-
-Generated site output lives in `_site/`.
-
-Python dependencies used by demonstrations are managed with `uv`.

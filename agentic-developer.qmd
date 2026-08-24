@@ -18,3 +18,5 @@ institute: Aviva Warsaw
 {{< include sections/04-agents.qmd >}}
 
 {{< include sections/05-agentic-engineering.qmd >}}
+
+{{< include sections/06-outro.qmd >}}
