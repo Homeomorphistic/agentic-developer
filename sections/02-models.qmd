@@ -45,7 +45,7 @@ comparing language models—not a literal measure of intelligence.
 - Higher means stronger **overall** capability, not necessarily better for your
   task
 
-[Explore the live index and methodology](https://artificialanalysis.ai/evaluations/artificial-analysis-intelligence-index)
+[Explore the live index and methodology](https://artificialanalysis.ai/)
 :::
 
 ::: {.column width="55%"}

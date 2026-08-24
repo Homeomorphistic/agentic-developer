@@ -453,7 +453,7 @@ Bartosz Chmiela
 <li><strong>Index weights:</strong> agent benchmarks contribute 34% of the final score; coding and scientific reasoning contribute 24% each; general capability contributes 18%</li>
 <li>Higher means stronger <strong>overall</strong> capability, not necessarily better for your task</li>
 </ul>
-<p><a href="https://artificialanalysis.ai/evaluations/artificial-analysis-intelligence-index">Explore the live index and methodology</a></p>
+<p><a href="https://artificialanalysis.ai/">Explore the live index and methodology</a></p>
 </div><div class="column" style="width:55%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -488,7 +488,7 @@ Bartosz Chmiela
 </div>
 </div>
 <div class="fragment">
-<p><em>Demo: let’s look at the model prices</em></p>
+<p><em>Let’s look at the model prices</em></p>
 </div>
 </section>
 <section id="conversation-grows" class="slide level2">
@@ -513,14 +513,13 @@ Bartosz Chmiela
 </section>
 <section id="prompt-caching" class="slide level2">
 <h2>Prompt caching</h2>
-<p>Successive calls often begin with the same content:</p>
-<p><code class="text-muted">[system prompt · instructions · earlier turns]</code> <code>[new message]</code></p>
-<p>The provider can <strong>cache the stable prefix</strong> and process only the newly appended suffix at the normal input rate.</p>
+<p>Successive calls often share a stable prefix:</p>
+<p><code>[cached: system prompt · instructions · earlier turns] [new message]</code></p>
+<p>Only the new suffix is processed at the normal input rate.</p>
 <ul>
-<li>Cache reads are cheaper than processing the same input again—but not free.</li>
-<li>Cached tokens still occupy the context window.</li>
-<li>Changing the prefix, model, or sometimes effort level can invalidate reuse.</li>
-<li>Coding-agent harnesses usually manage prompt caching automatically.</li>
+<li>Cache reads cost less—but cached tokens still fill the context window.</li>
+<li>Changing the prefix, model, or effort may prevent reuse.</li>
+<li>Coding-agent harnesses usually manage caching automatically.</li>
 </ul>
 </section>
 <section id="effort" class="slide level2">

@@ -13,7 +13,7 @@
 :::
 
 ::: {.fragment}
-*Demo: let's look at the model prices*
+*Let's look at the model prices*
 :::
 
 ## Conversation grows
@@ -35,18 +35,15 @@ grows with every turn.
 
 ## Prompt caching
 
-Successive calls often begin with the same content:
+Successive calls often share a stable prefix:
 
-`[system prompt · instructions · earlier turns]`{.text-muted}
-`[new message]`
+`[cached: system prompt · instructions · earlier turns] [new message]`
 
-The provider can **cache the stable prefix** and process only the newly
-appended suffix at the normal input rate.
+Only the new suffix is processed at the normal input rate.
 
-- Cache reads are cheaper than processing the same input again—but not free.
-- Cached tokens still occupy the context window.
-- Changing the prefix, model, or sometimes effort level can invalidate reuse.
-- Coding-agent harnesses usually manage prompt caching automatically.
+- Cache reads cost less—but cached tokens still fill the context window.
+- Changing the prefix, model, or effort may prevent reuse.
+- Coding-agent harnesses usually manage caching automatically.
 
 ## Effort
 
