@@ -640,12 +640,12 @@ Bartosz Chmiela
 </tbody>
 </table>
 <div class="fragment">
-<p><em>Demo: let’s look at Copilot’s tools.</em></p>
+<p><em>Let’s look at Copilot’s tools.</em></p>
 </div>
 </section>
 <section id="agent-harness" class="slide level2">
 <h2>Agent harness</h2>
-<p>An <strong>agent harness</strong> is the software runtime that coordinates an agent session: it assembles context, calls the model, executes tool calls, and manages state and permissions.</p>
+<p>An <strong>agent harness</strong> is the software that coordinates an agent session: it assembles context, calls the model, executes tool calls, and manages state and permissions.</p>
 
 <img data-src="images/diagrams/agent-harness.svg" class="quarto-figure quarto-figure-center r-stretch" style="width:88.0%" alt="An agent harness inside a development environment. A goal enters the harness, which manages the agent loop, context, permissions, and session state while coordinating an LLM and developer tools."></section>
 <section id="context-engineering" class="slide level2">
@@ -653,7 +653,7 @@ Bartosz Chmiela
 
 <img data-src="images/diagrams/context-window.svg" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%" alt="Two successive model calls. The second call resends the system message and tool and MCP definitions, then appends the previous assistant response, a tool result, and the next user message to the conversation context."><p>The harness rebuilds and sends the accumulated context on every call. New user, assistant, and tool-result messages are appended for the next call—the model does not remember them unless they are sent again.</p>
 <div class="fragment">
-<p><em>Let’s look at Developer: Open Chat Debug View</em></p>
+<p><em>Let’s look at Developer: Show Chat Debug View</em></p>
 </div>
 </section>
 <section id="popular-harnesses" class="slide level2 smaller">

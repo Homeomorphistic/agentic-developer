@@ -38,12 +38,12 @@ outside the context window.
 | Browser and APIs | Interact with external systems |
 
 ::: {.fragment}
-*Demo: let's look at Copilot's tools.*
+*Let's look at Copilot's tools.*
 :::
 
 ## Agent harness
 
-An **agent harness** is the software runtime that coordinates an agent session:
+An **agent harness** is the software that coordinates an agent session:
 it assembles context, calls the model, executes tool calls, and manages state
 and permissions.
 
@@ -58,7 +58,7 @@ assistant, and tool-result messages are appended for the next call—the model
 does not remember them unless they are sent again.
 
 ::: {.fragment}
-*Let's look at Developer: Open Chat Debug View*
+*Let's look at Developer: Show Chat Debug View*
 :::
 
 ## Popular harnesses {.smaller}
