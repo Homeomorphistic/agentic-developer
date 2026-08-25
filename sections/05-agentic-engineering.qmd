@@ -196,12 +196,15 @@ Sources: [Model Context Protocol — What is the Model Context Protocol (MCP)?](
 
 Each skill's output becomes the next skill's input.
 
+::: {tbl-colwidths="[9,31,60]"}
 | Step | Skill | Outcome |
 |:---:|:---|:---|
+| **0** | `/setup-matt-pocock-skills` | Configure the issue tracker, triage labels, and docs location. |
 | **1** | `/grill-with-docs` | Interview the developer; record the decisions. |
 | **2** | `/to-spec` | Turn the agreed conversation into a written spec. |
 | **3** | `/to-tickets` | Split the spec into small, agent-buildable tickets. |
 | **4** | `/implement` | Build the tickets with a test-first workflow. |
+:::
 
 ::: {.fragment}
 *Demo: implement feature with skills.*

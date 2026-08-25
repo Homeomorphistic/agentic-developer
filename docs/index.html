@@ -324,7 +324,7 @@ Bartosz Chmiela
 <li>space for the model’s generated response.</li>
 </ul>
 <div class="fragment">
-<p><em>Let’s look at Session Info</em></p>
+<p><em>Let’s look at Session Info.</em></p>
 </div>
 </section>
 <section id="attention" class="slide level2">
@@ -488,7 +488,7 @@ Bartosz Chmiela
 </div>
 </div>
 <div class="fragment">
-<p><em>Let’s look at the model prices</em></p>
+<p><em>Let’s look at the model prices.</em></p>
 </div>
 </section>
 <section id="conversation-grows" class="slide level2">
@@ -557,7 +557,7 @@ Bartosz Chmiela
 </div>
 </div>
 <div class="fragment">
-<p><em>Demo: audience Q&amp;A at different effort levels</em></p>
+<p><em>Demo: audience Q&amp;A at different effort levels.</em></p>
 </div>
 </section>
 <section id="maximizing-the-value" class="slide level2">
@@ -653,7 +653,7 @@ Bartosz Chmiela
 
 <img data-src="images/diagrams/context-window.svg" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%" alt="Two successive model calls. The second call resends the system message and tool and MCP definitions, then appends the previous assistant response, a tool result, and the next user message to the conversation context."><p>The harness rebuilds and sends the accumulated context on every call. New user, assistant, and tool-result messages are appended for the next call—the model does not remember them unless they are sent again.</p>
 <div class="fragment">
-<p><em>Let’s look at Developer: Show Chat Debug View</em></p>
+<p><em>Let’s look at Developer: Show Chat Debug View.</em></p>
 </div>
 </section>
 <section id="popular-harnesses" class="slide level2 smaller">
@@ -744,7 +744,7 @@ Bartosz Chmiela
 </tbody>
 </table>
 <div class="fragment">
-<p><em>Demo: Plan mode in Agents Window</em></p>
+<p><em>Demo: Plan mode in Agents Window.</em></p>
 </div>
 <div class="footer">
 <p>Source: <a href="https://academy.claude.com/courses/claude-code-101/the-explore-plan-code-commit-workflow">Claude Academy — The explore → plan → code → commit workflow</a></p>
@@ -785,7 +785,7 @@ Bartosz Chmiela
 </tbody>
 </table>
 <div class="fragment">
-<p><em>Demo: Worktree in Agents Window</em></p>
+<p><em>Demo: Worktree in Agents Window.</em></p>
 </div>
 </section>
 <section id="instructions" class="slide level2 smaller">
@@ -818,7 +818,7 @@ Bartosz Chmiela
 </tbody>
 </table>
 <div class="fragment">
-<p><em>Let’s look at available instructions</em></p>
+<p><em>Let’s look at available instructions.</em></p>
 </div>
 <div class="footer">
 <p>Sources: <a href="https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions">GitHub Docs — Adding repository custom instructions</a> · <a href="https://code.visualstudio.com/docs/agent-customization/custom-instructions">VS Code — Custom instructions</a></p>
@@ -844,7 +844,7 @@ Bartosz Chmiela
 </div>
 </div>
 <div class="fragment">
-<p><em>Demo: Instructions with <code>/init</code> or <code>/create-instruction</code></em></p>
+<p><em>Demo: Instructions with <code>/init</code> or <code>/create-instruction</code>.</em></p>
 </div>
 </section>
 <section id="skills" class="slide level2 smaller">
@@ -972,11 +972,12 @@ Bartosz Chmiela
 <section id="matt-pococks-main-workflow" class="slide level2 smaller">
 <h2>Matt Pocock’s main workflow</h2>
 <p>Each skill’s output becomes the next skill’s input.</p>
+<div data-tbl-colwidths="[9,31,60]">
 <table class="caption-top">
 <colgroup>
-<col style="width: 38%">
-<col style="width: 30%">
-<col style="width: 30%">
+<col style="width: 9%">
+<col style="width: 31%">
+<col style="width: 60%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -987,27 +988,33 @@ Bartosz Chmiela
 </thead>
 <tbody>
 <tr class="odd">
+<td style="text-align: center;"><strong>0</strong></td>
+<td style="text-align: left;"><code>/setup-matt-pocock-skills</code></td>
+<td style="text-align: left;">Configure the issue tracker, triage labels, and docs location.</td>
+</tr>
+<tr class="even">
 <td style="text-align: center;"><strong>1</strong></td>
 <td style="text-align: left;"><code>/grill-with-docs</code></td>
 <td style="text-align: left;">Interview the developer; record the decisions.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: center;"><strong>2</strong></td>
 <td style="text-align: left;"><code>/to-spec</code></td>
 <td style="text-align: left;">Turn the agreed conversation into a written spec.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: center;"><strong>3</strong></td>
 <td style="text-align: left;"><code>/to-tickets</code></td>
 <td style="text-align: left;">Split the spec into small, agent-buildable tickets.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: center;"><strong>4</strong></td>
 <td style="text-align: left;"><code>/implement</code></td>
 <td style="text-align: left;">Build the tickets with a test-first workflow.</td>
 </tr>
 </tbody>
 </table>
+</div>
 <div class="fragment">
 <p><em>Demo: implement feature with skills.</em></p>
 </div>
