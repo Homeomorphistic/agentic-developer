@@ -1,7 +1,8 @@
 from decimal import Decimal
 
 
-# Standard first line of code?
+# The very first line of code for a learning software enginner?
+
 
 def calculate_delivery_fee(
     order_total: Decimal,
